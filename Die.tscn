@@ -21,33 +21,28 @@ shape = SubResource( 2 )
 
 [node name="Simple" parent="." instance=ExtResource( 2 )]
 
-[node name="Unfold" type="Popup" parent="."]
-visible = true
-self_modulate = Color( 0.996078, 0.996078, 0.996078, 1 )
-margin_right = 61.0
-margin_bottom = 61.0
-
-[node name="Background" type="MeshInstance2D" parent="Unfold"]
+[node name="Background" type="MeshInstance2D" parent="."]
 self_modulate = Color( 0.145098, 0.133333, 0.133333, 0.517647 )
 scale = Vector2( 0.5, 0.5 )
 mesh = SubResource( 1 )
 
-[node name="F1" parent="Unfold/Background" instance=ExtResource( 2 )]
+[node name="F1" parent="Background" instance=ExtResource( 2 )]
 position = Vector2( 0, -79.5 )
 
-[node name="F2" parent="Unfold/Background" instance=ExtResource( 2 )]
+[node name="F2" parent="Background" instance=ExtResource( 2 )]
 position = Vector2( -51, -79.5 )
 
-[node name="F3" parent="Unfold/Background" instance=ExtResource( 2 )]
+[node name="F3" parent="Background" instance=ExtResource( 2 )]
 position = Vector2( 0, -26.5 )
 
-[node name="F4" parent="Unfold/Background" instance=ExtResource( 2 )]
+[node name="F4" parent="Background" instance=ExtResource( 2 )]
 position = Vector2( 0, 79.5 )
 
-[node name="F5" parent="Unfold/Background" instance=ExtResource( 2 )]
+[node name="F5" parent="Background" instance=ExtResource( 2 )]
 position = Vector2( 51, -79.5 )
 
-[node name="F6" parent="Unfold/Background" instance=ExtResource( 2 )]
+[node name="F6" parent="Background" instance=ExtResource( 2 )]
 position = Vector2( 0, 26.5 )
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]
