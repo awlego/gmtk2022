@@ -39,6 +39,7 @@ func end_player_turn():
 	pass
 
 func roll_dice():
+	$Die.roll()
 	# decrement energy
 	$Player.energy -= 1
 	$PlayerEnergy.text = str($Player.energy)

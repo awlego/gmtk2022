@@ -17,6 +17,7 @@ func _ready():
 	$Background/F5.set_face(faces[4])
 	$Background/F6.set_face(faces[5])
 	$Background.hide()
+	$Simple.set_face(faces[0])
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,3 +33,7 @@ func _on_Area2D_mouse_entered():
 func _on_Area2D_mouse_exited():
 	$Background.hide()
 
+func roll():
+	var roll = randi() % 6
+	$Simple.set_face(faces[roll])
+	return roll

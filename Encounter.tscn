@@ -235,5 +235,6 @@ text = "Dice Pool"
 
 [node name="Die" parent="." instance=ExtResource( 8 )]
 position = Vector2( 527, 367 )
+scale = Vector2( 2, 2 )
 
 [connection signal="pressed" from="RollButton" to="." method="_on_RollButton_pressed"]
