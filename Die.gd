@@ -17,7 +17,7 @@ func _ready():
 	$Background/F5.set_face(faces[4])
 	$Background/F6.set_face(faces[5])
 	$Background.hide()
-	pass # Replace with function body.
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -26,10 +26,9 @@ func _ready():
 
 func _on_Area2D_mouse_entered():
 	$Background.show()
-	print("HI")
-	pass # Replace with function body.
+
 
 
 func _on_Area2D_mouse_exited():
 	$Background.hide()
-	pass # Replace with function body.
+
