@@ -3,7 +3,8 @@ extends Node
 
 var health = 45
 var defense = 0
-var energy = 3
+var max_energy = 3
+var energy = max_energy
 var active_dice_slots = 3
 #var dice_pool = [] # this will be the array of dice that we load
 

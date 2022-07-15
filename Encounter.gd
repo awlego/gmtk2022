@@ -21,6 +21,16 @@ func _ready():
 func _on_RollButton_pressed():
 	roll_dice()
 
+func start_player_turn():
+	$Player.energy = $Player.max_energy
+	next_dice_slot = 0
+	# reset dice animations
+	# refresh dice cds
+	# enable buttons
+
+func end_player_turn():
+	# disable buttons
+	pass
 
 func roll_dice():
 	# decrement energy
@@ -39,13 +49,18 @@ func roll_dice():
 	# check for victory (where exactly should this live?)
 	
 	# if energy = 0, end turn and start enemy turn
-	
+	if $Player.energy == 0:
+		end_player_turn()
+		enemy_turn()
 	
 #
-#func enemy_turn():
+func enemy_turn():
+	$Player.health -= 3
+	$PlayerHealth.text = str($Player.health)
 #	enemy.do_current_action()
 #	enemy.select_next_action()
-#	# go start player turn, which means resetting their energy/cds
+	# go start player turn, which means resetting their energy/cds
+	start_player_turn()
 	
 func game_over():
 	# display end of game info and return to home screen
