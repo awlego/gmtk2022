@@ -1,13 +1,16 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://art/DALL·E 2022-07-15 11.09.34 - dwarven cave fortress interior, pixel art.png" type="Texture" id=2]
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://art/dices.png" type="Texture" id=4]
+[ext_resource path="res://SimpleDie.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
 font_data = ExtResource( 3 )
+
+[sub_resource type="AnimatedTexture" id=3]
 
 [sub_resource type="DynamicFont" id=2]
 size = 40
@@ -33,9 +36,9 @@ text = "Roll!"
 [node name="DiceSprite" type="Sprite" parent="."]
 position = Vector2( 136, 608 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
-hframes = 3
-vframes = 2
+texture = SubResource( 3 )
+normal_map = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 153, 104 )
 
 [node name="DiceSprite5" type="Sprite" parent="."]
 position = Vector2( 395, 852 )
@@ -43,6 +46,7 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 4 )
 hframes = 3
 vframes = 2
+region_rect = Rect2( 203, 114, 93, 51 )
 
 [node name="DiceSprite6" type="Sprite" parent="."]
 position = Vector2( 515, 852 )
@@ -177,5 +181,8 @@ margin_right = 168.0
 margin_bottom = 952.0
 custom_fonts/font = SubResource( 2 )
 text = "Dice Pool"
+
+[node name="Die" parent="." instance=ExtResource( 5 )]
+position = Vector2( 420, 275 )
 
 [connection signal="pressed" from="RollButton" to="." method="_on_RollButton_pressed"]
