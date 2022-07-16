@@ -8,6 +8,34 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Unit",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://Battle/Enemies/Enemy.gd"
+}, {
+"base": "Reference",
+"class": "Face",
+"language": "GDScript",
+"path": "res://Dice/Face.gd"
+}, {
+"base": "Reference",
+"class": "PlayerState",
+"language": "GDScript",
+"path": "res://Game/PlayerState.gd"
+}, {
+"base": "Node2D",
+"class": "Unit",
+"language": "GDScript",
+"path": "res://Unit.gd"
+} ]
+_global_script_class_icons={
+"Enemy": "",
+"Face": "",
+"PlayerState": "",
+"Unit": ""
+}
+
 [application]
 
 config/name="GMTK 2022"
@@ -17,6 +45,11 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://Global.gd"
+
+[debug]
+
+gdscript/warnings/unused_variable=false
+gdscript/warnings/shadowed_variable=false
 
 [display]
 
