@@ -1,4 +1,4 @@
-extends Node
+extends MarginContainer
 
 
 # Declare member variables here. Examples:
@@ -14,11 +14,3 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
-func start_new_game():
-	assert(get_tree().change_scene("res://LevelSelector.tscn") == OK)
-
-func _on_PlayButton_pressed():
-	start_new_game()
-	
-

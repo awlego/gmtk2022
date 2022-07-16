@@ -6,22 +6,33 @@
 [ext_resource path="res://Player.gd" type="Script" id=4]
 [ext_resource path="res://Enemy.gd" type="Script" id=5]
 [ext_resource path="res://Encounter.gd" type="Script" id=6]
-[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://EnemyIntent.gd" type="Script" id=7]
 [ext_resource path="res://Dice/Die.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Battle/DieSlot.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Zones/DiceSlot.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Dice/Dice.tscn" type="PackedScene" id=11]
+[ext_resource path="res://fonts/pixel-craft-font/PixelCraft-2Odxo.otf" type="DynamicFontData" id=9]
+[ext_resource path="res://art/shield.png" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
-font_data = ExtResource( 7 )
+font_data = ExtResource( 9 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 40
-font_data = ExtResource( 7 )
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 9 )
 
 [node name="Encounter" type="Node"]
 script = ExtResource( 6 )
+
+[node name="Combat" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="Player" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="Enemy" type="Node" parent="."]
+script = ExtResource( 5 )
 
 [node name="Background" type="TextureRect" parent="."]
 margin_right = 1024.0
@@ -32,45 +43,6 @@ texture = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
-
-[node name="UI" type="Node2D" parent="."]
-z_index = 1
-
-[node name="Dice" parent="UI" instance=ExtResource( 11 )]
-margin_left = 865.0
-margin_top = 913.0
-margin_right = 865.0
-margin_bottom = 913.0
-
-[node name="DieSlot" parent="UI" instance=ExtResource( 9 )]
-position = Vector2( 220, 900 )
-
-[node name="DieSlot2" parent="UI" instance=ExtResource( 9 )]
-position = Vector2( 345, 900 )
-
-[node name="DieSlot3" parent="UI" instance=ExtResource( 9 )]
-position = Vector2( 470, 900 )
-
-[node name="DieSlot4" parent="UI" instance=ExtResource( 9 )]
-position = Vector2( 595, 900 )
-
-[node name="DieSlot5" parent="UI" instance=ExtResource( 9 )]
-position = Vector2( 720, 900 )
-
-[node name="DiceSlot" parent="UI" instance=ExtResource( 10 )]
-margin_left = 232.0
-margin_top = 798.0
-margin_right = 232.0
-margin_bottom = 798.0
-
-[node name="Combat" type="Node" parent="."]
-script = ExtResource( 3 )
-
-[node name="Player" type="Node" parent="."]
-script = ExtResource( 4 )
-
-[node name="Enemy" type="Node" parent="."]
-script = ExtResource( 5 )
 
 [node name="RollButton" type="Button" parent="."]
 margin_left = 168.0
@@ -102,7 +74,77 @@ hframes = 3
 vframes = 2
 
 [node name="DiceSprite4" type="Sprite" parent="."]
-position = Vector2( 824, 606 )
+position = Vector2( 824, 608 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+hframes = 3
+vframes = 2
+
+[node name="DiceSprite5" type="Sprite" parent="."]
+position = Vector2( 395, 852 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+hframes = 3
+vframes = 2
+
+[node name="DiceSprite6" type="Sprite" parent="."]
+position = Vector2( 515, 852 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+hframes = 3
+vframes = 2
+
+[node name="DiceSprite7" type="Sprite" parent="."]
+position = Vector2( 635, 852 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+hframes = 3
+vframes = 2
+
+[node name="DiceSprite8" type="Sprite" parent="."]
+position = Vector2( 752, 848 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+hframes = 3
+vframes = 2
+
+[node name="DiceSprite9" type="Sprite" parent="."]
+position = Vector2( 275, 852 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+hframes = 3
+vframes = 2
+
+[node name="DiceSprite10" type="Sprite" parent="."]
+position = Vector2( 395, 964 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+hframes = 3
+vframes = 2
+
+[node name="DiceSprite11" type="Sprite" parent="."]
+position = Vector2( 515, 964 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+hframes = 3
+vframes = 2
+
+[node name="DiceSprite12" type="Sprite" parent="."]
+position = Vector2( 635, 964 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+hframes = 3
+vframes = 2
+
+[node name="DiceSprite13" type="Sprite" parent="."]
+position = Vector2( 752, 960 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+hframes = 3
+vframes = 2
+
+[node name="DiceSprite14" type="Sprite" parent="."]
+position = Vector2( 275, 964 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 hframes = 3
@@ -155,21 +197,22 @@ text = "40
 "
 align = 1
 
-[node name="Health3" type="Label" parent="."]
-margin_left = 680.0
-margin_top = 669.0
-margin_right = 967.0
-margin_bottom = 770.0
+[node name="EnemyName" type="Label" parent="."]
+margin_left = 688.0
+margin_top = 680.0
+margin_right = 975.0
+margin_bottom = 781.0
 custom_fonts/font = SubResource( 2 )
 text = "Enemy Sprite"
 
-[node name="Health5" type="Label" parent="."]
-margin_left = 688.0
-margin_top = 480.0
-margin_right = 975.0
-margin_bottom = 581.0
-custom_fonts/font = SubResource( 2 )
-text = "Enemy Intent"
+[node name="EnemyIntent" type="TextureRect" parent="."]
+margin_left = 792.0
+margin_top = 464.0
+margin_right = 1369.0
+margin_bottom = 1230.0
+rect_scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 10 )
+script = ExtResource( 7 )
 
 [node name="MessageBox" type="Label" parent="."]
 margin_left = 272.0
@@ -179,6 +222,14 @@ margin_bottom = 421.0
 custom_fonts/font = SubResource( 2 )
 align = 1
 autowrap = true
+
+[node name="ReturnHomeButton" type="Button" parent="."]
+margin_left = 416.0
+margin_top = 336.0
+margin_right = 600.0
+margin_bottom = 432.0
+custom_fonts/font = SubResource( 3 )
+text = "Return Home"
 
 [node name="PlayerEnergyText" type="Label" parent="."]
 margin_left = 16.0
@@ -197,7 +248,7 @@ custom_fonts/font = SubResource( 2 )
 text = "Dice Pool"
 
 [node name="Die" parent="." instance=ExtResource( 8 )]
-position = Vector2( 653, 256 )
+position = Vector2( 912, 864 )
 scale = Vector2( 2, 2 )
 
 [connection signal="pressed" from="RollButton" to="." method="_on_RollButton_pressed"]
