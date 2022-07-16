@@ -37,11 +37,11 @@ func roll():
 	var roll = randi() % 6
 	$Simple.set_face(faces[roll])
 	
-	var actions = {}
+	var actions = []	
 	if faces[roll] == Global.attack:
-		actions[Global.Action.ATTACK] = 5
+		actions.append([Global.Action.ATTACK, 5])
 	else:
-		actions[Global.Action.DEFEND] = 5
+		actions.append([Global.Action.DEFEND, 5])
 	return actions
 
 
