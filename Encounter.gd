@@ -49,7 +49,8 @@ func roll_dice():
 	var dice_slots = get_tree().get_nodes_in_group("DiceSlots")
 	var dice_to_roll = dice_slots[next_dice_slot]
 	dice_to_roll.frame = dice_roll
-	$Enemy.health -= (dice_roll + 1)
+	var dmg = clamp((dice_roll + 1) - $Enemy.defense, 0, MAX_HEALTH)
+	$Enemy.health -= dmg
 	$Enemy.health = clamp($Enemy.health, 0, MAX_HEALTH)
 	$EnemyHealth.text = str($Enemy.health)
 	next_dice_slot += 1
@@ -69,21 +70,40 @@ func enemy_turn():
 	$Player.health -= 3
 	$Player.health = clamp($Player.health, 0, MAX_HEALTH)
 	$PlayerHealth.text = str($Player.health)
+	 
+	$Enemy.take_turn()
+
 
 	if $Player.health == 0:
 		game_over()
 
 	# go start player turn, which means resetting their energy/cds
 	start_player_turn()
-	
+
+
+
+
+
 func game_over():
 	$MessageBox.text = "Game over!"
+	$ReturnHomeButton.show()
 	# display end of game info and return to home screen
-	pass
+
 	
 func round_cleared():
 	$MessageBox.text = "You beat the encounter!"
+	$ReturnLevelSelectButton.show()
 	# display round victory info and return to stage selection
-	
 	pass
 
+
+
+func _on_ReturnHomeButton_pressed():
+	# game over
+	assert(get_tree().change_scene("res://TitleMenu.tscn") == OK)
+
+
+func _on_ReturnLevelSelectButton_pressed():
+	# signal that we've cleared the level
+	#Global.levels_cleared(3)
+	assert(get_tree().change_scene("res://LevelSelector.tscn") == OK)

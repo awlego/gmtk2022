@@ -15,15 +15,14 @@ func _ready():
 #func _process(delta):
 #	pass
 
-onready var enemy_intent = get_node("EnemyIntent")
 
-func switch_texture(num):
 
+func set_intent(num):
 	if (num == 0):
-		enemy_intent.set_texture(Global.attack)
+		self.texture = Global.attack
 
 	elif(num == 1):
-		enemy_intent.set_texture(Global.defend)
+		self.texture = Global.defend
 
 	else:
 		print("Error you shouldn't be here")
