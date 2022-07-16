@@ -5,7 +5,7 @@ var home
 var home_slot = null
 var faces = [Global.Faces["Strike"], Global.Faces["Strike"], 
 	Global.Faces["Strike"], Global.Faces["Strike"], Global.Faces["Strike"],
-	Global.Faces["Strike"]]
+	Global.Faces["Shields Up!"]]
 
 # FACES:
 # 1 0 4
@@ -57,16 +57,14 @@ func roll():
 	var roll = randi() % 6
 	$Simple.set_face(faces[roll])
 	
-	var actions = []	
-	if faces[roll] == Global.attack:
-		actions.append([Global.Action.ATTACK, 5])
-	else:
-		actions.append([Global.Action.DEFEND, 5])
 	return get_effect(roll)
 
 func get_effect(i):
 	var effects = []
-	effects.append_array(faces[i].effects)
+	for effect in faces[i].effects:
+		if effect[0] != Global.Action.MODIFY_OPPOSITE && effect[0] != Global.Action.MODIFY_ADJACENT:
+			effects.append(effect)
+#	effects.append_array(faces[i].effects)
 	for effect in faces[opposite_face(i)].effects:
 		if effect[0] == Global.Action.MODIFY_OPPOSITE:
 			effects.append(effect[1])
@@ -74,6 +72,7 @@ func get_effect(i):
 		for effect in faces[face].effects:
 			if effect[0] == Global.Action.MODIFY_ADJACENT:
 				effects.append(effect[1])
+	print(effects)
 	return effects
 
 func _on_Interact_mouse_entered():
