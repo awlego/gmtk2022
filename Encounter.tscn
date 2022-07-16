@@ -7,7 +7,7 @@
 [ext_resource path="res://Enemy.gd" type="Script" id=5]
 [ext_resource path="res://Encounter.gd" type="Script" id=6]
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://Die.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Dice/Die.tscn" type="PackedScene" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
