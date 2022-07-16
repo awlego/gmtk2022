@@ -15,11 +15,6 @@ _global_script_classes=[ {
 "path": "res://Battle/Enemies/Enemy.gd"
 }, {
 "base": "Reference",
-"class": "Face",
-"language": "GDScript",
-"path": "res://Dice/Face.gd"
-}, {
-"base": "Reference",
 "class": "PlayerState",
 "language": "GDScript",
 "path": "res://Game/PlayerState.gd"
@@ -31,7 +26,6 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Enemy": "",
-"Face": "",
 "PlayerState": "",
 "Unit": ""
 }
@@ -45,11 +39,6 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://Global.gd"
-
-[debug]
-
-gdscript/warnings/unused_variable=false
-gdscript/warnings/shadowed_variable=false
 
 [display]
 

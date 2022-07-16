@@ -32,18 +32,20 @@ func _on_Timer_timeout():
 		else:
 			if(!do_close):
 				do_close = true
-#				timer.start(1)
+				timer.start(2)
 	else:
-		if(bubble_text_length > 0):
-			current_text.erase(bubble_text_length -1,1)
-			lbltext.text = current_text
-			bubble_text_length -= 1
-			if(can_shrink):
-				ninerect.rect_size -= Vector2(6,0)
-				ninerect.rect_position += Vector2(3,0)
-			
-			timer.start(0.04)
-		else:
-			queue_free()
+		queue_free()
+		# if you wanna backspace, this code does that
+#		if(bubble_text_length > 0):
+#			current_text.erase(bubble_text_length -1,1)
+#			lbltext.text = current_text
+#			bubble_text_length -= 1
+#			if(can_shrink):
+#				ninerect.rect_size -= Vector2(6,0)
+#				ninerect.rect_position += Vector2(3,0)
+#
+#			timer.start(0.04)
+#		else:
+#			queue_free()
 	
 	pass # Replace with function body.
