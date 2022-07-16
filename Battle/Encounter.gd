@@ -9,9 +9,23 @@ const MAX_HEALTH = 10000
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$PlayerHealth.text = str($Player.health)
-	$PlayerEnergy.text = str($Player.energy)
-	$EnemyHealth.text = str($Enemy.health)
+	var enemy = load("res://Battle/Enemies/Goblin.tscn").instance()
+	add_child(enemy)
+	enemy.name = "enemy"
+	enemy.position.x = 800
+	enemy.position.y = 500
+	enemy.enter_battle(self)
+	
+	var player_unit = load("res://Battle/Player.tscn").instance()
+	add_child(player_unit)
+	player_unit.name = "player"
+	$player.position.x = 200
+	$player.position.y = 500
+	$player.scale.x = 200.0 / $player/Sprite.texture.get_width()
+	$player.scale.y = 300.0 / $player/Sprite.texture.get_height()
+	$player.enter_battle(self)
+	
+	
 	pass # Replace with function body.
 
 
@@ -28,53 +42,62 @@ func _on_RollButton_pressed():
 	roll_dice()
 
 func start_player_turn():
-	$Player.energy = $Player.max_energy
-	next_dice_slot = 0
-	# reset dice animations
-	# refresh dice cds
-	# enable buttons
-
-func end_player_turn():
-	# disable buttons
-	pass
+	$player.upkeep()
 
 func roll_dice():
-	$Die.roll()
-	# decrement energy
-	$Player.energy -= 1
-	$PlayerEnergy.text = str($Player.energy)
-	
-	# roll selected die
-	var dice_roll = randi() % 6
-	var dice_slots = get_tree().get_nodes_in_group("DiceSlots")
-	var dice_to_roll = dice_slots[next_dice_slot]
-	dice_to_roll.frame = dice_roll
-	var dmg = clamp((dice_roll + 1) - $Enemy.defense, 0, MAX_HEALTH)
-	$Enemy.health -= dmg
-	$Enemy.health = clamp($Enemy.health, 0, MAX_HEALTH)
-	$EnemyHealth.text = str($Enemy.health)
-	next_dice_slot += 1
-	
+	var actions = $player.roll($Die)
+	print(actions)
+	player_actions(actions)
+#	$Die.roll()
+#	# decrement energy
+#	$Player.energy -= 1
+#	$PlayerEnergy.text = str($Player.energy)
+#
+#	# roll selected die
+#	var dice_roll = randi() % 6
+#	var dice_slots = get_tree().get_nodes_in_group("DiceSlots")
+#	var dice_to_roll = dice_slots[next_dice_slot]
+#	dice_to_roll.frame = dice_roll
+#	var dmg = clamp((dice_roll + 1) - $Enemy.defense, 0, MAX_HEALTH)
+#	$Enemy.health -= dmg
+#	$Enemy.health = clamp($Enemy.health, 0, MAX_HEALTH)
+#	$EnemyHealth.text = str($Enemy.health)
+#	next_dice_slot += 1
+#
 	# do effect of rolled die
 	# check for victory (where exactly should this live?)
-	if $Enemy.health == 0:
+	if $enemy.health == 0:
 		round_cleared()
 	
 	# if energy = 0, end turn and start enemy turn
-	if $Player.energy == 0:
-		end_player_turn()
+	if $player.energy == 0:
 		enemy_turn()
+
+func player_actions(actions):
+	action_processing(actions, $player, $enemy)
+
+func enemy_actions(actions):
+	action_processing(actions, $enemy, $player)
+
+func action_processing(actions, source, target):
+	for action in actions:
+		var n = action[1]
+		match action[0]:
+			Global.Action.ATTACK:
+				target.take_damage(n)
+			Global.Action.DEFEND:
+				source.gain_defense(n)
+			Global.Action.DAMAGE:
+				source.lose_health(n)
+			Global.Action.HEAL:
+				source.heal(n)
 	
-#
+
 func enemy_turn():
-	$Player.health -= 3
-	$Player.health = clamp($Player.health, 0, MAX_HEALTH)
-	$PlayerHealth.text = str($Player.health)
-	 
-	$Enemy.take_turn()
+	enemy_actions($enemy.take_turn())
 
 
-	if $Player.health == 0:
+	if $player.health == 0:
 		game_over()
 
 	# go start player turn, which means resetting their energy/cds

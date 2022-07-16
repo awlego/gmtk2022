@@ -6,36 +6,27 @@ var pending_action
 var action_set
 
 # Override this for specific enemy
-func init_action_set():
+func init_enemy():
 	action_set = [
 		[[Global.Action.ATTACK, 8]],
 		[[Global.Action.ATTACK, 5], [Global.Action.DEFEND, 5]],
-		[[Global.Action.DEFEND, 10]]
+		[[Global.Action.DEFEND, 10], [Global.Action.HEAL, 3]]
 	]
-
-func do_pending_action(player):
-	for action in pending_action:
-		if action[0] == Global.Action.DEFEND:
-			defense += action[1]
-		elif action[0] == Global.Action.ATTACK:
-			if player:
-				player.take_damage(action[1])
+	max_health = 50
+	health = 50
 
 func select_next_action():
 	var rand = randi() % action_set.size()
 	pending_action = action_set[rand]
+	$EnemyIntent.intend(pending_action)
 
-func take_turn(player):
+func take_turn():
 	var action = pending_action
 	upkeep()
 	select_next_action()
-	do_pending_action(player)
+	return action
 	
 func _ready():
-	init_action_set()
+	init_enemy()
+	._ready()
 	select_next_action()
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
