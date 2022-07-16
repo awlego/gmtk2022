@@ -1,11 +1,6 @@
 extends Node
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -17,12 +12,13 @@ func _ready():
 
 func _on_Level1_pressed():
 	Global.set_current_level(1)
-	get_tree().change_scene("res://Encounter.tscn")
+	assert(get_tree().change_scene("res://Encounter.tscn") == OK)
 
 func _on_Level2_pressed():
 	Global.set_current_level(2)
-	get_tree().change_scene("res://Encounter.tscn")
+	assert(get_tree().change_scene("res://Encounter.tscn") == OK)
 	
 func _on_Level3_pressed():
 	Global.set_current_level(3)
-	get_tree().change_scene("res://Encounter.tscn")
+	assert(get_tree().change_scene("res://Encounter.tscn") == OK)
+

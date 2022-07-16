@@ -69,8 +69,6 @@ func enemy_turn():
 	$Player.health -= 3
 	$Player.health = clamp($Player.health, 0, MAX_HEALTH)
 	$PlayerHealth.text = str($Player.health)
-#	enemy.do_current_action()
-#	enemy.select_next_action()
 
 	if $Player.health == 0:
 		game_over()
@@ -86,5 +84,6 @@ func game_over():
 func round_cleared():
 	$MessageBox.text = "You beat the encounter!"
 	# display round victory info and return to stage selection
+	
 	pass
 

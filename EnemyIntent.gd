@@ -1,4 +1,4 @@
-extends Node
+extends TextureRect
 
 
 # Declare member variables here. Examples:
@@ -15,10 +15,15 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func start_new_game():
-	assert(get_tree().change_scene("res://LevelSelector.tscn") == OK)
+onready var enemy_intent = get_node("EnemyIntent")
 
-func _on_PlayButton_pressed():
-	start_new_game()
-	
+func switch_texture(num):
 
+	if (num == 0):
+		enemy_intent.set_texture(Global.attack)
+
+	elif(num == 1):
+		enemy_intent.set_texture(Global.defend)
+
+	else:
+		print("Error you shouldn't be here")
