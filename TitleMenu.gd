@@ -15,13 +15,10 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func level_selector():
-	pass
-
 func start_new_game():
-	level_selector()
-
+	get_tree().change_scene("res://LevelSelector.tscn")
 
 func _on_PlayButton_pressed():
-	get_tree().change_scene("res://Encounter.tscn")
-	print("hello")
+	start_new_game()
+	
+

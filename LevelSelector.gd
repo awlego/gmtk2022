@@ -14,3 +14,15 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func _on_Level1_pressed():
+	Global.set_current_level(1)
+	get_tree().change_scene("res://Encounter.tscn")
+
+func _on_Level2_pressed():
+	Global.set_current_level(2)
+	get_tree().change_scene("res://Encounter.tscn")
+	
+func _on_Level3_pressed():
+	Global.set_current_level(3)
+	get_tree().change_scene("res://Encounter.tscn")
