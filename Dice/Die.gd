@@ -3,8 +3,12 @@ extends Node2D
 var dragging = false
 var home
 var home_slot = null
-var faces = [Global.Faces["Strike"], Global.Faces["Strike"], 
-	Global.Faces["Strike"], Global.Faces["Strike"], Global.Faces["Strike"],
+var faces = [
+	Global.Faces["Double Edged Sword"], 
+	Global.Faces["Strike"], 
+	Global.Faces["Strike"], 
+	Global.Faces["Strike"], 
+	Global.Faces["Strike"],
 	Global.Faces["Shields Up!"]]
 
 # FACES:

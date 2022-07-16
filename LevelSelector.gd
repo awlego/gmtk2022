@@ -12,13 +12,13 @@ func _ready():
 
 func _on_Level1_pressed():
 	Global.set_current_level(1)
-	assert(get_tree().change_scene("res://Encounter.tscn") == OK)
+	assert(get_tree().change_scene("res://Battle/Encounter.tscn") == OK)
 
 func _on_Level2_pressed():
 	Global.set_current_level(2)
-	assert(get_tree().change_scene("res://Encounter.tscn") == OK)
+	assert(get_tree().change_scene("res://Battle/Encounter.tscn") == OK)
 	
 func _on_Level3_pressed():
 	Global.set_current_level(3)
-	assert(get_tree().change_scene("res://Encounter.tscn") == OK)
+	assert(get_tree().change_scene("res://Battle/Encounter.tscn") == OK)
 
