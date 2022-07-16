@@ -1,12 +1,13 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
+[ext_resource path="res://Dice/PlayerDiceCollection.gd" type="Script" id=1]
 [ext_resource path="res://fonts/pixel-craft-font/PixelCraft-2Odxo.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://Battle/Player2.gd" type="Script" id=3]
 [ext_resource path="res://Combat.gd" type="Script" id=4]
+[ext_resource path="res://Dice/PlayerDiceCollection.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Battle/Enemy.gd" type="Script" id=6]
 [ext_resource path="res://art/DALL·E 2022-07-15 11.09.34 - dwarven cave fortress interior, pixel art.png" type="Texture" id=7]
 [ext_resource path="res://Battle/Encounter.gd" type="Script" id=10]
-[ext_resource path="res://Dice/DieSlot.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Dice/Die.tscn" type="PackedScene" id=12]
 
 [sub_resource type="DynamicFont" id=1]
@@ -34,27 +35,29 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="DieSlot" parent="." instance=ExtResource( 11 )]
-position = Vector2( 340, 900 )
-
-[node name="DieSlot2" parent="." instance=ExtResource( 11 )]
-position = Vector2( 472, 900 )
-
-[node name="DieSlot3" parent="." instance=ExtResource( 11 )]
-position = Vector2( 600, 898 )
-
-[node name="DieSlot4" parent="." instance=ExtResource( 11 )]
-position = Vector2( 728, 894 )
-
-[node name="DieSlot5" parent="." instance=ExtResource( 11 )]
-position = Vector2( 854, 894 )
+[node name="PlayerDiceCollection" parent="." instance=ExtResource( 5 )]
+position = Vector2( 322, 894 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 1 )
 
 [node name="Die" parent="." instance=ExtResource( 12 )]
-position = Vector2( 509, 584 )
+position = Vector2( 382, 954 )
 scale = Vector2( 2, 2 )
 
 [node name="Die2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 260, 955 )
+position = Vector2( 509, 955 )
+scale = Vector2( 2, 2 )
+
+[node name="Die3" parent="." instance=ExtResource( 12 )]
+position = Vector2( 637, 954 )
+scale = Vector2( 2, 2 )
+
+[node name="Die4" parent="." instance=ExtResource( 12 )]
+position = Vector2( 766, 954 )
+scale = Vector2( 2, 2 )
+
+[node name="Die5" parent="." instance=ExtResource( 12 )]
+position = Vector2( 894, 954 )
 scale = Vector2( 2, 2 )
 
 [node name="Combat" type="Node" parent="."]
