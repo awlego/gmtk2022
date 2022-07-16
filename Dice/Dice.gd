@@ -1,8 +1,7 @@
-extends Node2D
+extends Control
 
 var faces = [Global.attack, Global.attack, Global.attack, 
 Global.defend, Global.defend, Global.defend]
-
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -17,23 +16,30 @@ func _ready():
 	$Background/F5.set_face(faces[4])
 	$Background/F6.set_face(faces[5])
 	$Background.hide()
-	$Simple.set_face(faces[0])
-	pass
+	$Face.set_face(faces[0])
+	pass # Replace with function body.
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
 
-func _on_Area2D_mouse_entered():
+func _on_Dice_mouse_entered():
 	$Background.show()
 
 
-
-func _on_Area2D_mouse_exited():
+func _on_Dice_mouse_exited():
 	$Background.hide()
 
-func roll():
-	var roll = randi() % 6
-	$Simple.set_face(faces[roll])
-	return roll
+func get_drag_data(position):
+	var data = {}
+	
+	var drag_texture = TextureRect.new()
+	drag_texture.expand = true
+	drag_texture.texture = $Face/Face.texture
+	drag_texture.rect_size = Vector2(100, 100)
+	
+	set_drag_preview(drag_texture)
+	
+	return data
