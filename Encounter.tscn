@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://art/DALL·E 2022-07-15 11.09.34 - dwarven cave fortress interior, pixel art.png" type="Texture" id=1]
 [ext_resource path="res://art/dices.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Dice/Die.tscn" type="PackedScene" id=8]
 [ext_resource path="res://fonts/pixel-craft-font/PixelCraft-2Odxo.otf" type="DynamicFontData" id=9]
 [ext_resource path="res://art/shield.png" type="Texture" id=10]
+[ext_resource path="res://Dice/Dice.tscn" type="PackedScene" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -43,6 +44,12 @@ texture = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="Dice" parent="." instance=ExtResource( 11 )]
+margin_left = 840.0
+margin_top = 354.0
+margin_right = -94.0
+margin_bottom = -580.0
 
 [node name="RollButton" type="Button" parent="."]
 margin_left = 168.0
