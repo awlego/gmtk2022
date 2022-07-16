@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UpgradeShop/UpgradeShop.gd" type="Script" id=1]
+[ext_resource path="res://art/game_art/DALL·E 2022-07-16 11.05.18 - cartoon dwarf shopkeeper wearing armor rolling dice.png" type="Texture" id=2]
+[ext_resource path="res://art/game_art/DALL·E 2022-07-16 10.57.02_dwarven shop.png" type="Texture" id=3]
+[ext_resource path="res://UpgradeShop/Speech.tscn" type="PackedScene" id=4]
+
+[node name="UpgradeShop" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="ShopBackground" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 3 )
+
+[node name="Shopkeeper" type="TextureRect" parent="."]
+margin_left = 20.0
+margin_top = 528.0
+margin_right = 1044.0
+margin_bottom = 1552.0
+rect_scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Speech" parent="." instance=ExtResource( 4 )]
+position = Vector2( 315, 432 )
