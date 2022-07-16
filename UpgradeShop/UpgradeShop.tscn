@@ -67,6 +67,9 @@ text = "UPGRADES AVAILABLE"
 position = Vector2( 400, 700 )
 scale = Vector2( 2, 2 )
 
+[node name="PlayerDiceCollection2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 600, 431 )
+
 [node name="RollSlots" type="Node2D" parent="."]
 position = Vector2( 600, 246 )
 
@@ -74,5 +77,8 @@ position = Vector2( 600, 246 )
 scale = Vector2( 1, 1 )
 
 [node name="Die" parent="." instance=ExtResource( 7 )]
-position = Vector2( 497, 558 )
+position = Vector2( 392, 548 )
 scale = Vector2( 2, 2 )
+
+[node name="Die2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 751, 342 )

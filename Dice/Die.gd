@@ -99,12 +99,10 @@ func _on_Interact_input_event(viewport, event, shape_idx):
 					var abs_home = slot.get_parent().get_parent().position
 					var slot_scaling = slot.get_parent().get_parent().scale
 					home = slot.get_parent().get_parent().position
-					home = rel_home + abs_home
+					home = rel_home * slot_scaling + abs_home
 					print(home, rel_home, abs_home, slot_scaling.x, slot_scaling.y)
-					home[0] += 60
-					home[1] += 60
-#					home[0] += (30 * slot_scaling.x)
-#					home[1] += (30 * slot_scaling.y)
+					home[0] += (30 * slot_scaling.x)
+					home[1] += (30 * slot_scaling.y)
 					print(home)
 					if home_slot:
 						home_slot.contains = null
