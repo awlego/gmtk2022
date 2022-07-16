@@ -22,3 +22,11 @@ func _on_Level3_pressed():
 	Global.set_current_level(3)
 	assert(get_tree().change_scene("res://Battle/Encounter.tscn") == OK)
 
+
+
+func _on_Button_pressed():
+	pass # Replace with function body.
+
+
+func _on_DEBUG_go_to_shop_pressed():
+	assert(get_tree().change_scene("res://UpgradeShop/UpgradeShop.tscn") == OK)
