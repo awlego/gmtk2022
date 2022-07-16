@@ -1,8 +1,6 @@
-extends Node
+extends Control
 
-var attack = preload("res://art/Weapon.png")
-var defend = preload("res://art/shield.png")
-var dice_size = 90.0
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -12,7 +10,12 @@ var dice_size = 90.0
 func _ready():
 	pass # Replace with function body.
 
-
+func set_face(val):
+	$Face/Icon.texture = val
+	$Face/Icon.scale[0] = 0.9 * Global.dice_size / val.get_width()
+	$Face/Icon.scale[1] = 0.9 * Global.dice_size / val.get_height()
+	$Face/Icon.position[0] = Global.dice_size / 2
+	$Face/Icon.position[1] = Global.dice_size / 2
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

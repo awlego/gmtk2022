@@ -1,8 +1,6 @@
-extends Node
+extends Node2D
 
-var attack = preload("res://art/Weapon.png")
-var defend = preload("res://art/shield.png")
-var dice_size = 90.0
+var contains = null
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

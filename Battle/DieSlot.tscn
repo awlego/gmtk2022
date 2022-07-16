@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Zones/DieZone.tscn" type="PackedScene" id=1]
+
+[node name="DieSlot" type="Node2D"]
+scale = Vector2( 2, 2 )
+
+[node name="RSquare" type="Polygon2D" parent="."]
+position = Vector2( -4, -8 )
+color = Color( 0.117647, 0.0705882, 0.0705882, 1 )
+polygon = PoolVector2Array( 9, 8, 59, 8, 64, 13, 64, 63, 59, 68, 9, 68, 4, 63, 4, 13 )
+
+[node name="DieZone" parent="." instance=ExtResource( 1 )]
+position = Vector2( 30, 30 )
+scale = Vector2( 3, 3 )
