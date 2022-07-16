@@ -9,10 +9,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(Input.is_action_just_pressed("ui_accept")):
-		var new_bubble = bubble.instance()
-		new_bubble.bubble_text = "Hey! Animated Speech \n Bubble"
-		new_bubble.global_position = Vector2(300,100)
-		new_bubble.can_shrink = false
-		add_child(new_bubble)
+#	if(Input.is_action_just_pressed("ui_accept")):
+#		var new_bubble = bubble.instance()
+#		new_bubble.bubble_text = "Hey! Animated Speech \n Bubble"
+#		new_bubble.global_position = Vector2(300,100)
+#		new_bubble.can_shrink = false
+#		add_child(new_bubble)
 	pass

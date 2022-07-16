@@ -1,6 +1,6 @@
 extends Node2D
 
-var bubble_text = "this is just a test"
+var bubble_text = "Welcome to my shop. \nTake a look at my wares \nto upgrade your dice."
 var can_shrink = true
 var bubble_text_length = 0
 var bubble_text_index = 0
