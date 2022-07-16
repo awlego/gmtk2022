@@ -76,7 +76,6 @@ func get_effect(i):
 		for effect in faces[face].effects:
 			if effect[0] == Global.Action.MODIFY_ADJACENT:
 				effects.append(effect[1])
-	print(effects)
 	return effects
 
 func _on_Interact_mouse_entered():
