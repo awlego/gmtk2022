@@ -1,5 +1,10 @@
 extends Node
 
+enum Action {
+	ATTACK				#0
+	DEFEND				#1
+}
+
 var attack = preload("res://art/Weapon.png")
 var defend = preload("res://art/shield.png")
 var dice_size = 90.0

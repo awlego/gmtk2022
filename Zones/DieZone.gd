@@ -25,12 +25,10 @@ func _queue_free():
 
 
 func _on_Area2D_mouse_entered():
-	print("HEY")
 	hover = true
 
 func _on_Area2D_mouse_exited():
 	hover = false
 
 func can_accept():
-	print(hover && (contains == null))
 	return hover && (contains == null)

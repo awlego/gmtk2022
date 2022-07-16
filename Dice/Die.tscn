@@ -28,6 +28,7 @@ shape = SubResource( 2 )
 
 [node name="Background" type="MeshInstance2D" parent="."]
 self_modulate = Color( 0.145098, 0.133333, 0.133333, 0.517647 )
+position = Vector2( 0, -90 )
 scale = Vector2( 0.5, 0.5 )
 mesh = SubResource( 1 )
 __meta__ = {

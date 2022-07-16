@@ -36,7 +36,13 @@ func _process(delta):
 func roll():
 	var roll = randi() % 6
 	$Simple.set_face(faces[roll])
-	return roll
+	
+	var actions = {}
+	if faces[roll] == Global.attack:
+		actions[Global.Action.ATTACK] = 5
+	else:
+		actions[Global.Action.DEFEND] = 5
+	return actions
 
 
 func _on_Interact_mouse_entered():
