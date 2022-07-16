@@ -2,6 +2,7 @@ extends Node2D
 
 var dragging = false
 var home
+var home_slot = null
 var faces = [Global.attack, Global.attack, Global.attack, 
 Global.defend, Global.defend, Global.defend]
 
@@ -52,6 +53,16 @@ func _on_Interact_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton && event.button_index == BUTTON_LEFT:
 		dragging = event.pressed
 		if !dragging:
+			for slot in Global.slots:
+				if slot.can_accept():
+					home = slot.get_parent().position
+					home[0] += 60
+					home[1] += 60
+					if home_slot:
+						home_slot.contains = null
+					home_slot = slot
+					slot.contains = self
+					break
 			$Interact/Tween.interpolate_property(self, "position", Vector2(position), 
 				Vector2(home), 0.2, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 			$Interact/Tween.start()

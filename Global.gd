@@ -8,6 +8,7 @@ var dice_size = 90.0
 # var b = "text"
 
 var current_level : int = 0
+var slots = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
