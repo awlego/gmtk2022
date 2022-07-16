@@ -22,8 +22,7 @@ func do_pending_action():
 	elif next_action == 1:
 		defense += 7
 		$"../EnemyShieldStrength".text = str(defense)
-	
-	
+
 func select_next_action():
 	var rand = randi() % 2
 	get_parent().get_node("EnemyIntent").set_intent(rand)

@@ -10,10 +10,11 @@ enum Action {
 	MODIFY_OPPOSITE     #6
 }
 
-var attack = preload("res://art/Weapon.png")
-var defend = preload("res://art/shield.png")
+var attack = preload("res://art/game_art/Weapon.png")
+var defend = preload("res://art/game_art/shield.png")
 var Face = preload("res://Dice/Face.gd")
 var Faces = {}
+var Player = preload("res://Game/PlayerState.gd").new(100, 70, 100)
 
 func _init_faces():
 	Faces["Strike"] = Face.new("Strike", attack, "Attack for 5 damage", [[Action.ATTACK, 5]])
