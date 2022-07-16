@@ -3,13 +3,33 @@ extends Node2D
 var dragging = false
 var home
 var home_slot = null
-var faces = [Global.attack, Global.attack, Global.attack, 
-Global.defend, Global.defend, Global.defend]
+var faces = [Global.Faces["Strike"], Global.Faces["Strike"], 
+	Global.Faces["Strike"], Global.Faces["Strike"], Global.Faces["Strike"],
+	Global.Faces["Strike"]]
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+# FACES:
+# 1 0 4
+#   2
+#   5
+#   3
+# Opposite: 5-i
+# Adjacent: All except i and 5-i
+func opposite_face(i):
+	return 5-i
 
+func adjacent_faces(i):
+	var faces = range(6)
+	faces.erase(i)
+	faces.erase(opposite_face(i))
+	return faces
+
+# Takes array of 6 Global.Face
+func init_faces(faces):
+	self.faces = faces
+
+# Takes index 0..5 and Global.Face
+func set_face(i, face):
+	faces[i] = face
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -42,8 +62,19 @@ func roll():
 		actions.append([Global.Action.ATTACK, 5])
 	else:
 		actions.append([Global.Action.DEFEND, 5])
-	return actions
+	return get_effect(roll)
 
+func get_effect(i):
+	var effects = []
+	effects.append_array(faces[i].effects)
+	for effect in faces[opposite_face(i)].effects:
+		if effect[0] == Global.Action.MODIFY_OPPOSITE:
+			effects.append(effect[1])
+	for face in adjacent_faces(i):
+		for effect in faces[face].effects:
+			if effect[0] == Global.Action.MODIFY_ADJACENT:
+				effects.append(effect[1])
+	return effects
 
 func _on_Interact_mouse_entered():
 	$Background.show()

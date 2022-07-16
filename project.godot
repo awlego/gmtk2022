@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Reference",
+"class": "Face",
+"language": "GDScript",
+"path": "res://Dice/Face.gd"
+} ]
+_global_script_class_icons={
+"Face": ""
+}
+
 [application]
 
 config/name="GMTK 2022"
