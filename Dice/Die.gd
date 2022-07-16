@@ -100,7 +100,6 @@ func _on_Interact_input_event(viewport, event, shape_idx):
 					var slot_scaling = slot.get_parent().get_parent().scale
 					home = slot.get_parent().get_parent().position
 					home = rel_home * slot_scaling + abs_home
-					print(home, rel_home, abs_home, slot_scaling.x, slot_scaling.y)
 					home[0] += (30 * slot_scaling.x)
 					home[1] += (30 * slot_scaling.y)
 					print(home)
