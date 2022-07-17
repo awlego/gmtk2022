@@ -122,5 +122,26 @@ func _on_Level3_pressed():
 	Global.set_current_level(3)
 	assert(get_tree().change_scene("res://Battle/Encounter.tscn") == OK)
 
+func _on_Level4_pressed():
+	Global.set_current_level(4)
+	assert(get_tree().change_scene("res://Battle/Encounter.tscn") == OK)
+
+func _on_Level5_pressed():
+	Global.set_current_level(5)
+	assert(get_tree().change_scene("res://Battle/Encounter.tscn") == OK)
+	
+func _on_Level6_pressed():
+	Global.set_current_level(6)
+	assert(get_tree().change_scene("res://Battle/Encounter.tscn") == OK)
+	
+func _on_Level7_pressed():
+	Global.set_current_level(7)
+	assert(get_tree().change_scene("res://Battle/Encounter.tscn") == OK)
+
+func _on_Level8_pressed():
+	Global.set_current_level(8)
+	assert(get_tree().change_scene("res://Battle/Encounter.tscn") == OK)
+	
+
 func _on_DEBUG_go_to_shop_pressed():
 	assert(get_tree().change_scene("res://UpgradeShop/UpgradeShop.tscn") == OK)
