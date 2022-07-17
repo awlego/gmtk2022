@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://LevelSelector.gd" type="Script" id=1]
 [ext_resource path="res://art/game_art/mini_dragon1_cleaned_transparent_bw.png" type="Texture" id=2]
 [ext_resource path="res://art/game_art/DALL·E 2022-07-15 18.57.39 - parchment paper texture.png" type="Texture" id=3]
 [ext_resource path="res://art/game_art/mini_dragon1_cleaned_transparent_fire_down.png" type="Texture" id=4]
 [ext_resource path="res://fonts/pixel-craft-font/PixelCraft-2Odxo.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://art/game_art/locked_level.png" type="Texture" id=6]
 [ext_resource path="res://art/game_art/mini_dragon1_cleaned_transparent_whitebackground.png" type="Texture" id=7]
 [ext_resource path="res://art/game_art/mini_dragon1_cleaned_transparent.png" type="Texture" id=8]
 
@@ -32,7 +33,6 @@ margin_top = 821.0
 margin_right = 1485.0
 margin_bottom = 1845.0
 rect_scale = Vector2( 0.1, 0.1 )
-disabled = true
 texture_normal = ExtResource( 8 )
 texture_pressed = ExtResource( 7 )
 texture_hover = SubResource( 2 )
@@ -44,32 +44,8 @@ margin_top = 672.0
 margin_right = 1326.0
 margin_bottom = 1696.0
 rect_scale = Vector2( 0.1, 0.1 )
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 7 )
-texture_hover = SubResource( 2 )
-texture_disabled = ExtResource( 2 )
-
-[node name="Level3" type="TextureButton" parent="."]
-margin_left = 653.0
-margin_top = 673.0
-margin_right = 1677.0
-margin_bottom = 1697.0
-rect_scale = Vector2( 0.1, 0.1 )
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 7 )
-texture_hover = SubResource( 2 )
-texture_disabled = ExtResource( 2 )
-
-[node name="Level4" type="TextureButton" parent="."]
-margin_left = 465.0
-margin_top = 534.0
-margin_right = 1489.0
-margin_bottom = 1558.0
-rect_scale = Vector2( 0.1, 0.1 )
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 7 )
-texture_hover = SubResource( 2 )
-texture_disabled = ExtResource( 2 )
+disabled = true
+texture_disabled = ExtResource( 6 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = 362.0
@@ -89,6 +65,4 @@ text = "Go to Shop"
 
 [connection signal="pressed" from="Level1" to="." method="_on_Level1_pressed"]
 [connection signal="pressed" from="Level2" to="." method="_on_Level1_pressed"]
-[connection signal="pressed" from="Level3" to="." method="_on_Level1_pressed"]
-[connection signal="pressed" from="Level4" to="." method="_on_Level1_pressed"]
 [connection signal="pressed" from="DEBUG_go_to_shop" to="." method="_on_DEBUG_go_to_shop_pressed"]

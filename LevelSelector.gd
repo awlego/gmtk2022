@@ -2,7 +2,12 @@ extends Node
 
 
 # Called when the node enters the scene tree for the first time.
+
+func generate_levels():
+	pass
+
 func _ready():
+	generate_levels()
 	pass # Replace with function body.
 
 
