@@ -17,6 +17,7 @@ func _ready():
 
 func start_new_game():
 	Global.game_started = true
+	print(get_parent().get_children())
 	assert(get_tree().change_scene("res://LevelSelector.tscn") == OK)
 
 func _on_PlayButton_pressed():

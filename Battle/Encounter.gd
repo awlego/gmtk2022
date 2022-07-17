@@ -10,6 +10,7 @@ var selected_die
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print(get_parent().get_children())
 	if Global.game_started == true:
 		$Music.play()
 	
@@ -136,8 +137,8 @@ func _on_ReturnLevelSelectButton_pressed():
 	# signal that we've cleared the level
 	
 #	var level_selector = get_tree().get_root().find_node("LevelSelector")
-##	var level_selector = get_node("res://LevelSelector.gd")
-#	print(level_selector)
+	print(get_parent().get_children())
+	print(get_parent().get_node("LevelSelector"))
 #	level_selector.mark_level_cleared(Global.get_current_level())
 	assert(get_tree().change_scene("res://LevelSelector.tscn") == OK)
 

@@ -7,10 +7,18 @@ func generate_levels():
 	pass
 
 func _ready():
+	print(get_parent().get_children())
 	generate_levels()
 	pass # Replace with function body.
 
 
+func unlock_level(id):
+	pass
+	
+func mark_beaten(id):
+	$Level1.disabled = true
+	$Level1.texture_disabled = load("res://art/game_art/mini_dragon1_cleaned_transparent_bw.png")
+	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
@@ -18,7 +26,9 @@ func _ready():
 # don't do it this way kids, this is bad
 func mark_level_cleared(level : int):
 	if Global.current_level == 1:
-		$Level1.disabled = true
+		mark_beaten(1)
+		unlock_level(2)
+		unlock_level(3)
 	if Global.current_level == 2:
 		$Level2.disabled = true
 	if Global.current_level == 3:
