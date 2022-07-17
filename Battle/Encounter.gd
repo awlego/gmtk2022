@@ -6,6 +6,7 @@ extends Node
 # var b = "text"
 var next_dice_slot = 0
 const MAX_HEALTH = 10000
+var selected_die
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,6 +39,10 @@ func _ready():
 #	$EnemyHealth.text = str($Enemy.health)
 #	pass
 
+func select_die(die):
+	$UnfoldInterface.display_die(die)
+	selected_die = die
+	
 func _on_RollButton_pressed():
 	roll_dice()
 
@@ -46,6 +51,7 @@ func start_player_turn():
 
 func roll_dice():
 	var actions = $player.roll($Die)
+	$UnfoldInterface.display_die($Die)
 	print(actions)
 	player_actions(actions)
 #	$Die.roll()

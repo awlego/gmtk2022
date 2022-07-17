@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Dice/PlayerDiceCollection.gd" type="Script" id=1]
 [ext_resource path="res://fonts/pixel-craft-font/PixelCraft-2Odxo.otf" type="DynamicFontData" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Dice/PlayerDiceCollection.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Battle/Enemy.gd" type="Script" id=6]
 [ext_resource path="res://art/DALL·E 2022-07-15 11.09.34 - dwarven cave fortress interior, pixel art.png" type="Texture" id=7]
+[ext_resource path="res://Dice/UnfoldInterface.tscn" type="PackedScene" id=8]
+[ext_resource path="res://FaceTooltip.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Battle/Encounter.gd" type="Script" id=10]
 [ext_resource path="res://Dice/Die.tscn" type="PackedScene" id=12]
 
@@ -60,6 +62,9 @@ scale = Vector2( 2, 2 )
 position = Vector2( 894, 954 )
 scale = Vector2( 2, 2 )
 
+[node name="UnfoldInterface" parent="." instance=ExtResource( 8 )]
+position = Vector2( 6, 662 )
+
 [node name="Combat" type="Node" parent="."]
 script = ExtResource( 4 )
 
@@ -70,21 +75,12 @@ script = ExtResource( 3 )
 script = ExtResource( 6 )
 
 [node name="RollButton" type="Button" parent="."]
-margin_left = 168.0
-margin_top = 680.0
-margin_right = 323.0
-margin_bottom = 764.0
+margin_left = 289.0
+margin_top = 675.0
+margin_right = 448.0
+margin_bottom = 802.0
 custom_fonts/font = SubResource( 1 )
 text = "Roll!"
-
-[node name="PlayerEnergy" type="Label" parent="."]
-margin_left = 16.0
-margin_top = 856.0
-margin_right = 155.0
-margin_bottom = 957.0
-custom_fonts/font = SubResource( 2 )
-text = "3"
-align = 1
 
 [node name="MessageBox" type="Label" parent="."]
 margin_left = 269.0
@@ -113,21 +109,11 @@ margin_bottom = 432.0
 custom_fonts/font = SubResource( 3 )
 text = "Next Level!"
 
-[node name="PlayerEnergyText" type="Label" parent="."]
-margin_left = 16.0
-margin_top = 808.0
-margin_right = 176.0
-margin_bottom = 872.0
-custom_fonts/font = SubResource( 2 )
-text = "Energy"
-
-[node name="Health6" type="Label" parent="."]
-margin_left = 8.0
-margin_top = 928.0
-margin_right = 210.0
-margin_bottom = 992.0
-custom_fonts/font = SubResource( 2 )
-text = "Dice Pool"
+[node name="FaceTooltip" parent="." instance=ExtResource( 9 )]
+margin_left = 6.0
+margin_top = 554.0
+margin_right = -1018.0
+margin_bottom = -470.0
 
 [connection signal="pressed" from="RollButton" to="." method="_on_RollButton_pressed"]
 [connection signal="pressed" from="ReturnHomeButton" to="." method="_on_ReturnHomeButton_pressed"]
