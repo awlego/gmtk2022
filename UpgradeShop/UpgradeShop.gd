@@ -38,6 +38,7 @@ func on_upgrade_button():
 	if upgrade == null:
 		return
 	if $PlayerDiceCollection.i != null && $UnfoldInterface.i != null:
+		$ForgeSoundEffect.play()
 		$UnfoldInterface.upgrade_selection(upgrade)
 		
 	pass # Replace with function body.
