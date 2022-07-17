@@ -2,7 +2,7 @@
 class_name PlayerState
 
 var max_health = 100
-var health = 70
+var health = 100
 var gold = 50
 var dice_collection
 
