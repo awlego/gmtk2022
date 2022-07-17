@@ -14,7 +14,6 @@ onready var healthbar = $HealthBar
 
 func update_healthbar(value_percentage):
 	var value = 100 * value_percentage
-	print("ALEX HELLO ", value_percentage, " , ", value)
 	healthbar.texture_progress = bar_green
 	if value < healthbar.max_value * 0.7:
 		healthbar.texture_progress = bar_yellow
@@ -23,4 +22,4 @@ func update_healthbar(value_percentage):
 	if value <= healthbar.max_value:
 		show()
 	healthbar.value = value
-	print(healthbar.value, ", ", value)
+
