@@ -57,7 +57,6 @@ func _on_HP_draw():
 	
 func update_hpbar():
 	var hpbar = get_node("HealthDisplay")
-	print("ASDFASDFASDF", hpbar)
 	if hpbar:
 		var p = 1.0 * health / max_health
 		hpbar.update_healthbar(p)

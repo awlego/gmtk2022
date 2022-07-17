@@ -17,6 +17,7 @@ func set_face(value):
 		x = value.art
 	$Sprite.texture = x
 	if x:
+#		print("RRRRRRRRRRRRR", 40.0/x.get_width())
 		$Sprite.scale[0] = 40.0/x.get_width()
 		$Sprite.scale[1] = 40.0/x.get_height()
 	#$Tooltip/FaceTooltip.set_face(face)
