@@ -41,3 +41,8 @@ func on_upgrade_button():
 		$UnfoldInterface.upgrade_selection(upgrade)
 		
 	pass # Replace with function body.
+
+
+func on_return_button():
+	assert(get_tree().change_scene("res://LevelSelector.tscn") == OK)
+	pass # Replace with function body.
