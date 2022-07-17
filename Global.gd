@@ -14,6 +14,7 @@ var game_started = false
 
 var attack = preload("res://art/game_art/Weapon.png")
 var defend = preload("res://art/game_art/shield.png")
+var medicate_with_beer = preload("res://art/game_art/mug.png")
 var placeholder = preload("res://art/game_art/blank_dice.png")
 var Face = preload("res://Dice/Face.gd")
 var Faces = {}
@@ -30,7 +31,7 @@ func _init_faces():
 		[[Action.DEFEND, 2], [Action.MODIFY_ADJACENT, [Action.DEFEND, 2]]])
 	Faces["Double Edged Sword"] = Face.new("Double Edged Sword", attack, "Attack 12. Opposite Face: Take 2 damage.",
 		[[Action.ATTACK, 12], [Action.MODIFY_OPPOSITE, [Action.DAMAGE, 2]]])
-	Faces["Medicate"] = Face.new("Medicate (with beer)", placeholder, "Heal 10. Adjacent: Take 1 damage.",
+	Faces["Medicate"] = Face.new("Medicate (with beer)", medicate_with_beer, "Heal 10. Adjacent: Take 1 damage.",
 		[[Action.HEAL, 10], [Action.MODIFY_ADJACENT, [Action.DAMAGE, 1]]])
 	Faces["Tantrum"] = Face.new("Tantrum", placeholder, "Attack 1 on all faces of this die.",
 		[[Action.ATTACK, 1], [Action.MODIFY_ADJACENT, [Action.ATTACK, 1]], [Action.MODIFY_OPPOSITE, [Action.ATTACK, 1]]])
