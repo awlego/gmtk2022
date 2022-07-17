@@ -1,9 +1,10 @@
 extends Node2D
 
-var selected_slot = null
+#var selected_slot = null
 export var die_scene: PackedScene = preload("res://Dice/Die.tscn")
 var dice = []
 var i
+signal die_selected
 
 # Called when the node enters the scene tree for the first time.
 # eventually this needs to take die objects to pass them in -- not creating them
@@ -34,6 +35,7 @@ func select(index):
 		dice[i].deselect()
 	i = index
 	dice[i].select()
+	emit_signal("die_selected", dice[i])
 #	for child in get_tree().get_nodes_in_group("PlayerDice"):
 #		if child.slot_index == index:
 #			selected_slot = index

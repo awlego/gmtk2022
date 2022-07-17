@@ -67,7 +67,6 @@ func roll_dice():
 #			selected_dice = child
 #
 	var actions = selected_die.roll()
-	$UnfoldInterface.display_die(selected_die)
 	print(actions)
 	print($PlayerDiceCollection.dice[0].is_selected)
 	player_actions(actions)
@@ -136,3 +135,8 @@ func _on_ReturnLevelSelectButton_pressed():
 	# signal that we've cleared the level
 	#Global.levels_cleared(3)
 	assert(get_tree().change_scene("res://LevelSelector.tscn") == OK)
+
+func _on_PlayerDiceCollection_die_selected(selected_die):
+	print(selected_die)
+	$UnfoldInterface.display_die(selected_die)
+	

@@ -98,6 +98,8 @@ func deselect():
 	$Simple.set_shader_width(0.0)
 
 func _on_Interact_input_event(viewport, event, shape_idx):
+	if "pressed" in event && ! event.pressed:
+		return
 	if event is InputEventMouseButton && event.button_index == BUTTON_LEFT:
 		get_parent().select(slot_index)
 	if event is InputEventMouseButton && event.button_index == BUTTON_RIGHT:
@@ -126,4 +128,4 @@ func _on_Interact_input_event(viewport, event, shape_idx):
 #			$Interact/Tween.interpolate_property(self, "position", Vector2(position), 
 #				Vector2(home), 0.2, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 #			$Interact/Tween.start()
-	pass # Replace with function body.
+

@@ -117,6 +117,7 @@ margin_top = 556.0
 margin_right = -1014.0
 margin_bottom = -468.0
 
+[connection signal="die_selected" from="PlayerDiceCollection" to="." method="_on_PlayerDiceCollection_die_selected"]
 [connection signal="pressed" from="RollButton" to="." method="_on_RollButton_pressed"]
 [connection signal="pressed" from="ReturnHomeButton" to="." method="_on_ReturnHomeButton_pressed"]
 [connection signal="pressed" from="ReturnLevelSelectButton" to="." method="_on_ReturnLevelSelectButton_pressed"]
