@@ -6,22 +6,21 @@ var bar_yellow = preload("res://art/game_art/barHorizontal_yellow.png")
 
 onready var healthbar = $HealthBar
 
-func _ready():
-	show()
-	if get_parent() and get_parent().get("max_health"):
-		healthbar.max_value = get_parent().max_health
+#func _ready():
+#	pass
 
-func _process(delta):
-	global_rotation = 0
+#func _process(delta):
+#	pass
 
 func update_healthbar(value_percentage):
 	var value = 100 * value_percentage
-	
+	print("ALEX HELLO ", value_percentage, " , ", value)
 	healthbar.texture_progress = bar_green
 	if value < healthbar.max_value * 0.7:
 		healthbar.texture_progress = bar_yellow
 	if value < healthbar.max_value * 0.35:
 		healthbar.texture_progress = bar_red
-	if value < healthbar.max_value:
+	if value <= healthbar.max_value:
 		show()
 	healthbar.value = value
+	print(healthbar.value, ", ", value)
