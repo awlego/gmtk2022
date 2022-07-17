@@ -13,6 +13,7 @@ func init(gPlayer):
 func sync():
 	Global.Player.health = health
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	init(Global.Player)

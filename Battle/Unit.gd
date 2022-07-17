@@ -51,12 +51,16 @@ func enter_battle(battle):
 func _ready():
 	update_hpbar()
 
-
+func _on_HP_draw():
+	$HP.text = str(health) + "/" + str(max_health)
+	pass # Replace with function body.
+	
 func update_hpbar():
 	var hpbar = get_node("HealthDisplay")
 	if hpbar:
 		var p = 1.0 * health / max_health
 		hpbar.update_healthbar(p)
+	_on_HP_draw()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
