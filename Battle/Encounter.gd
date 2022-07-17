@@ -20,12 +20,13 @@ func _ready():
 	var player_unit = load("res://Battle/Player.tscn").instance()
 	add_child(player_unit)
 	player_unit.name = "player"
-	$player.position.x = 200
+	$player.position.x = 400
 	$player.position.y = 500
 	$player.scale.x = 200.0 / $player/Sprite.texture.get_width()
 	$player.scale.y = 300.0 / $player/Sprite.texture.get_height()
 	$player.enter_battle(self)
 	
+	$UnfoldInterface.connect("update_selection", self, "on_face_update")
 	
 	pass # Replace with function body.
 
@@ -39,9 +40,9 @@ func _ready():
 #	$EnemyHealth.text = str($Enemy.health)
 #	pass
 
-func select_die(die):
-	$UnfoldInterface.display_die(die)
-	selected_die = die
+#func select_die(die):
+#	$UnfoldInterface.display_die(die)
+#	selected_die = die
 	
 func _on_RollButton_pressed():
 	roll_dice()
@@ -140,3 +141,5 @@ func _on_PlayerDiceCollection_die_selected(selected_die):
 	print(selected_die)
 	$UnfoldInterface.display_die(selected_die)
 	
+func on_face_update(new_face):
+	$FaceTooltip.set_face(new_face)

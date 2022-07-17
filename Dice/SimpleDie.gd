@@ -3,6 +3,8 @@ extends Node2D
 var selectable = false
 var hoverable = false
 var face
+var i
+signal face_click
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,6 +23,8 @@ func set_face(value):
 
 
 func _on_Area2D_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton && "pressed" in event && event.pressed:
+		emit_signal("face_click", event, i)
 	pass # Replace with function body.
 
 
