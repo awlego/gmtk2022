@@ -13,7 +13,7 @@ func _ready():
 func set_face(value):
 	face = value
 	var x = value
-	if "art" in value:
+	if value != null && "art" in value:
 		x = value.art
 	$Sprite.texture = x
 	if x:

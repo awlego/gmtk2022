@@ -51,6 +51,7 @@ func deselect():
 		return
 	dice[i].deselect()
 	i = null
+	emit_signal("die_selected", null)
 #	for child in get_tree().get_nodes_in_group("PlayerDice"):
 #		if child.slot_index == index:
 #			selected_slot = null
