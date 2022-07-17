@@ -90,24 +90,32 @@ func _on_Interact_mouse_exited():
 
 func _on_Interact_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton && event.button_index == BUTTON_LEFT:
-		dragging = event.pressed
-		if !dragging:
-			for slot in Global.slots:
-				if slot.can_accept():
-					var rel_home = slot.get_parent().position
-					var abs_home = slot.get_parent().get_parent().position
-					var slot_scaling = slot.get_parent().get_parent().scale
-					home = slot.get_parent().get_parent().position
-					home = rel_home * slot_scaling + abs_home
-					home[0] += (30 * slot_scaling.x)
-					home[1] += (30 * slot_scaling.y)
-					print(home)
-					if home_slot:
-						home_slot.contains = null
-					home_slot = slot
-					slot.contains = self
-					break
-			$Interact/Tween.interpolate_property(self, "position", Vector2(position), 
-				Vector2(home), 0.2, Tween.TRANS_CUBIC, Tween.EASE_OUT)
-			$Interact/Tween.start()
+		$Simple.set_shader_width(2.0)
+	if event is InputEventMouseButton && event.button_index == BUTTON_RIGHT:
+		$Simple.set_shader_width(0.0)
+		pass
+		# "select" the die, indicate with yellow border
+		
+		
+#	if event is InputEventMouseButton && event.button_index == BUTTON_LEFT:
+#		dragging = event.pressed
+#		if !dragging:
+#			for slot in Global.slots:
+#				if slot.can_accept():
+#					var rel_home = slot.get_parent().position
+#					var abs_home = slot.get_parent().get_parent().position
+#					var slot_scaling = slot.get_parent().get_parent().scale
+#					home = slot.get_parent().get_parent().position
+#					home = rel_home * slot_scaling + abs_home
+#					home[0] += (30 * slot_scaling.x)
+#					home[1] += (30 * slot_scaling.y)
+#					print(home)
+#					if home_slot:
+#						home_slot.contains = null
+#					home_slot = slot
+#					slot.contains = self
+#					break
+#			$Interact/Tween.interpolate_property(self, "position", Vector2(position), 
+#				Vector2(home), 0.2, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+#			$Interact/Tween.start()
 	pass # Replace with function body.

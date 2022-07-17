@@ -11,3 +11,7 @@ func set_face(value):
 	$Sprite.texture = x
 	$Sprite.scale[0] = 40.0/x.get_width()
 	$Sprite.scale[1] = 40.0/x.get_height()
+
+func set_shader_width(value : float):
+	print("hello ", value)
+	$BlankFace.material.set("shader_param/outline_width", value)
