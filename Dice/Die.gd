@@ -10,6 +10,8 @@ var faces = [
 	Global.Faces["Strike"], 
 	Global.Faces["Strike"],
 	Global.Faces["Shields Up!"]]
+var is_selected = false
+var slot_index = null # where in the player dice collection it lives
 
 # FACES:
 # 1 0 4
@@ -90,13 +92,14 @@ func _on_Interact_mouse_exited():
 
 func _on_Interact_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton && event.button_index == BUTTON_LEFT:
-		$Simple.set_shader_width(2.0)
+		is_selected = true
+		get_parent().select(slot_index)
 	if event is InputEventMouseButton && event.button_index == BUTTON_RIGHT:
-		$Simple.set_shader_width(0.0)
-		pass
-		# "select" the die, indicate with yellow border
+		is_selected = false
+		get_parent().deselect(slot_index)
+
 		
-		
+#   # click dragging code		
 #	if event is InputEventMouseButton && event.button_index == BUTTON_LEFT:
 #		dragging = event.pressed
 #		if !dragging:
