@@ -49,10 +49,8 @@ func roll(die):
 #	pass
 
 
-func _on_HP_draw():
-	$HP.text = str(health) + "/" + str(max_health)
-	pass # Replace with function body.
+#func _on_HP_draw():
+#	$HP.text = str(health) + "/" + str(max_health)
+#	pass # Replace with function body.
 
-func _on_Shield_draw():
-	$Shield.text = str(defense)
-	pass # Replace with function body.
+

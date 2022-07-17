@@ -20,6 +20,7 @@ func take_damage(d):
 	print("No damage taken, phew!")
 	defense -= d
 	update_hpbar()
+	update_defense_bar()
 
 func lose_health(hp):
 	print("Oh no, " + name + " lost " + str(hp) + " health!")
@@ -30,9 +31,11 @@ func lose_health(hp):
 		emit_signal("death")
 	update_hpbar()
 
+
 func gain_defense(d):
 	print(name + " is shielding for " + str(d) + " defense!")
 	defense += d
+	update_defense_bar()
 
 func heal(h):
 	print("Aaaah, " + name + " is healing up " + str(h) + "health.")
@@ -43,6 +46,7 @@ func heal(h):
 
 func upkeep():
 	defense = 0
+	update_defense_bar()
 
 func enter_battle(battle):
 	self.battle = battle
@@ -50,17 +54,23 @@ func enter_battle(battle):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	update_hpbar()
+	update_defense_bar()
 
 func _on_HP_draw():
 	$HP.text = str(health) + "/" + str(max_health)
-	pass # Replace with function body.
-	
+
+func _on_Shield_draw():
+	$Shield.text = str(defense)
+
 func update_hpbar():
 	var hpbar = get_node("HealthDisplay")
 	if hpbar:
 		var p = 1.0 * health / max_health
 		hpbar.update_healthbar(p)
 	_on_HP_draw()
+	
+func update_defense_bar():
+	_on_Shield_draw()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

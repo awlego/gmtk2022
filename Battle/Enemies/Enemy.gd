@@ -28,5 +28,7 @@ func take_turn():
 	
 func _ready():
 	init_enemy()
+	$Sprite.playing = true
+	$Sprite.animation = "Swing"
 	._ready()
 	select_next_action()
