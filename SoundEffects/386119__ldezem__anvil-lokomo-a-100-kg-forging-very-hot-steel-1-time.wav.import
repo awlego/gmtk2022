@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/386119__ldezem__anvil-lokomo-a-100-kg-forging-very-hot-steel-1-time.wav-187d0b954189d561ddc440639cbceb54.sample"
+
+[deps]
+
+source_file="res://SoundEffects/386119__ldezem__anvil-lokomo-a-100-kg-forging-very-hot-steel-1-time.wav"
+dest_files=[ "res://.import/386119__ldezem__anvil-lokomo-a-100-kg-forging-very-hot-steel-1-time.wav-187d0b954189d561ddc440639cbceb54.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

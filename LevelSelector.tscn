@@ -2,19 +2,18 @@
 
 [ext_resource path="res://LevelSelector.gd" type="Script" id=1]
 [ext_resource path="res://art/game_art/mini_dragon1_cleaned_transparent_bw.png" type="Texture" id=2]
-[ext_resource path="res://art/mini_dragon1_cleaned_transparent.png" type="Texture" id=3]
-[ext_resource path="res://art/DALL·E 2022-07-15 18.57.39 - parchment paper texture.png" type="Texture" id=4]
+[ext_resource path="res://art/game_art/DALL·E 2022-07-15 18.57.39 - parchment paper texture.png" type="Texture" id=3]
+[ext_resource path="res://art/game_art/mini_dragon1_cleaned_transparent_fire_down.png" type="Texture" id=4]
 [ext_resource path="res://fonts/pixel-craft-font/PixelCraft-2Odxo.otf" type="DynamicFontData" id=5]
-[ext_resource path="res://art/mini_dragon1_cleaned_transparent_fire_down.png" type="Texture" id=6]
 [ext_resource path="res://art/game_art/mini_dragon1_cleaned_transparent_whitebackground.png" type="Texture" id=7]
+[ext_resource path="res://art/game_art/mini_dragon1_cleaned_transparent.png" type="Texture" id=8]
 
 [sub_resource type="AnimatedTexture" id=2]
 flags = 4
 frames = 2
-frame_0/texture = ExtResource( 3 )
-frame_0/delay_sec = 0.5
-frame_1/texture = ExtResource( 6 )
-frame_1/delay_sec = 0.5
+frame_0/texture = ExtResource( 8 )
+frame_1/texture = ExtResource( 4 )
+frame_1/delay_sec = 0.0
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -24,50 +23,37 @@ font_data = ExtResource( 5 )
 script = ExtResource( 1 )
 
 [node name="BackgroundTexture" type="TextureRect" parent="."]
-margin_left = 3.0
-margin_top = 2.0
-margin_right = 1027.0
-margin_bottom = 1026.0
 rect_pivot_offset = Vector2( 638, 777 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
-[node name="Level1" type="TextureButton" parent="BackgroundTexture"]
-margin_left = 458.0
-margin_top = 819.0
-margin_right = 1482.0
-margin_bottom = 1843.0
+[node name="Level1" type="TextureButton" parent="."]
+margin_left = 461.0
+margin_top = 821.0
+margin_right = 1485.0
+margin_bottom = 1845.0
 rect_scale = Vector2( 0.1, 0.1 )
 disabled = true
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 8 )
 texture_pressed = ExtResource( 7 )
 texture_hover = SubResource( 2 )
 texture_disabled = ExtResource( 2 )
 
-[node name="Level2" type="TextureButton" parent="BackgroundTexture"]
-margin_left = 284.0
-margin_top = 650.0
-margin_right = 1308.0
-margin_bottom = 1674.0
+[node name="Level2" type="TextureButton" parent="."]
+margin_left = 302.0
+margin_top = 672.0
+margin_right = 1326.0
+margin_bottom = 1696.0
 rect_scale = Vector2( 0.1, 0.1 )
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 8 )
 texture_pressed = ExtResource( 7 )
 texture_hover = SubResource( 2 )
+texture_disabled = ExtResource( 2 )
 
-[node name="Level3" type="TextureButton" parent="BackgroundTexture"]
-margin_left = 684.0
-margin_top = 640.0
-margin_right = 1708.0
-margin_bottom = 1664.0
-rect_scale = Vector2( 0.1, 0.1 )
-texture_normal = ExtResource( 3 )
-texture_pressed = ExtResource( 7 )
-texture_hover = SubResource( 2 )
-
-[node name="Label" type="Label" parent="BackgroundTexture"]
-margin_left = 359.0
-margin_top = 930.0
-margin_right = 682.0
-margin_bottom = 1006.0
+[node name="Label" type="Label" parent="."]
+margin_left = 362.0
+margin_top = 932.0
+margin_right = 685.0
+margin_bottom = 1008.0
 custom_fonts/font = SubResource( 1 )
 text = "Pick your level"
 
@@ -79,7 +65,6 @@ margin_bottom = 836.0
 rect_scale = Vector2( 2, 2 )
 text = "Go to Shop"
 
-[connection signal="pressed" from="BackgroundTexture/Level1" to="." method="_on_Level1_pressed"]
-[connection signal="pressed" from="BackgroundTexture/Level2" to="." method="_on_Level2_pressed"]
-[connection signal="pressed" from="BackgroundTexture/Level3" to="." method="_on_Level3_pressed"]
+[connection signal="pressed" from="Level1" to="." method="_on_Level1_pressed"]
+[connection signal="pressed" from="Level2" to="." method="_on_Level1_pressed"]
 [connection signal="pressed" from="DEBUG_go_to_shop" to="." method="_on_DEBUG_go_to_shop_pressed"]

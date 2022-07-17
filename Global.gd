@@ -10,6 +10,8 @@ enum Action {
 	MODIFY_OPPOSITE     #6
 }
 
+var game_started = false
+
 var attack = preload("res://art/game_art/Weapon.png")
 var defend = preload("res://art/game_art/shield.png")
 var placeholder = preload("res://art/game_art/blank_dice.png")

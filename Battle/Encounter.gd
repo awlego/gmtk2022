@@ -10,17 +10,20 @@ var selected_die
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if Global.game_started == true:
+		$Music.play()
+	
 	var enemy = load("res://Battle/Enemies/Goblin.tscn").instance()
 	add_child(enemy)
 	enemy.name = "enemy"
 	enemy.position.x = 800
-	enemy.position.y = 500
+	enemy.position.y = 650
 	enemy.enter_battle(self)
 	
 	var player_unit = load("res://Battle/Player.tscn").instance()
 	add_child(player_unit)
 	player_unit.name = "player"
-	$player.position.x = 400
+	$player.position.x = 300
 	$player.position.y = 500
 	$player.scale.x = 200.0 / $player/Sprite.texture.get_width()
 	$player.scale.y = 300.0 / $player/Sprite.texture.get_height()
@@ -110,15 +113,12 @@ func enemy_turn():
 	start_player_turn()
 
 
-
-
-
 func game_over():
 	$MessageBox.text = "Game over!"
+	$Music.stop()
 	$ReturnHomeButton.show()
 	# display end of game info and return to home screen
 
-	
 func round_cleared():
 	$MessageBox.text = "You beat the encounter!"
 	$ReturnLevelSelectButton.show()
@@ -134,7 +134,11 @@ func _on_ReturnHomeButton_pressed():
 
 func _on_ReturnLevelSelectButton_pressed():
 	# signal that we've cleared the level
-	#Global.levels_cleared(3)
+	
+#	var level_selector = get_tree().get_root().find_node("LevelSelector")
+##	var level_selector = get_node("res://LevelSelector.gd")
+#	print(level_selector)
+#	level_selector.mark_level_cleared(Global.get_current_level())
 	assert(get_tree().change_scene("res://LevelSelector.tscn") == OK)
 
 func _on_PlayerDiceCollection_die_selected(selected_die):

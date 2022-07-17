@@ -10,6 +10,21 @@ func _ready():
 #func _process(delta):
 #	pass
 
+# don't do it this way kids, this is bad
+func mark_level_cleared(level : int):
+	if Global.current_level == 1:
+		$Level1.disabled = true
+	if Global.current_level == 2:
+		$Level2.disabled = true
+	if Global.current_level == 3:
+		$Level3.disabled = true
+	if Global.current_level == 4:
+		$Level4.disabled = true
+	if Global.current_level == 5:
+		$Level5.disabled = true
+	if Global.current_level == 6:
+		$Level6.disabled = true
+		
 func _on_Level1_pressed():
 	Global.set_current_level(1)
 	assert(get_tree().change_scene("res://Battle/Encounter.tscn") == OK)
