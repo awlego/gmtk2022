@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Dice/SimpleDie.gd" type="Script" id=1]
 [ext_resource path="res://shaders/outline.shader" type="Shader" id=2]
@@ -10,6 +10,9 @@ shader = ExtResource( 2 )
 shader_param/outline_width = 0.0
 shader_param/outline_color = Color( 1, 0.901961, 0, 1 )
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 25, 25 )
+
 [node name="SimpleDie" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -19,3 +22,10 @@ texture = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 1, 0.7 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
+
+[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
