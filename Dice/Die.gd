@@ -89,14 +89,19 @@ func _on_Interact_mouse_exited():
 	$Background.hide()
 	pass # Replace with function body.
 
+func select():
+	is_selected = true
+	$Simple.set_shader_width(2.0)
+
+func deselect():
+	is_selected = false
+	$Simple.set_shader_width(0.0)
 
 func _on_Interact_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton && event.button_index == BUTTON_LEFT:
-		is_selected = true
 		get_parent().select(slot_index)
 	if event is InputEventMouseButton && event.button_index == BUTTON_RIGHT:
-		is_selected = false
-		get_parent().deselect(slot_index)
+		get_parent().deselect()
 
 		
 #   # click dragging code		

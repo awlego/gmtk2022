@@ -50,24 +50,26 @@ func start_player_turn():
 	$player.upkeep()
 
 func roll_dice():
-	if $PlayerDiceCollection.selected_slot == null:
+	var selected_die = $PlayerDiceCollection.get_selected_die()
+	if selected_die == null:
 		return
 		
 	# ideally this is a cost of the dice and is handled in 
 	# the actions, but for now all actions cost 1 energy
 	$player.energy -= 1
 	$PlayerEnergy.text = str($player.energy)
-	print($PlayerDiceCollection.selected_slot)
+	print($PlayerDiceCollection.i)
 	
-	$PlayerDiceCollection 
-	var selected_dice = null
-	for child in get_tree().get_nodes_in_group("PlayerDice"):
-		if child.slot_index == $PlayerDiceCollection.selected_slot:
-			selected_dice = child
-			
-	var actions = selected_dice.roll()
-#	$UnfoldInterface.display_die(selected_dice)
+#	$PlayerDiceCollection 
+#	var selected_dice = $PlayerDiceCollection.get_selected_die()
+#	for child in get_tree().get_nodes_in_group("PlayerDice"):
+#		if child.slot_index == $PlayerDiceCollection.selected_slot:
+#			selected_dice = child
+#
+	var actions = selected_die.roll()
+	$UnfoldInterface.display_die(selected_die)
 	print(actions)
+	print($PlayerDiceCollection.dice[0].is_selected)
 	player_actions(actions)
 #	
 	# check for victory (where exactly should this live?)
