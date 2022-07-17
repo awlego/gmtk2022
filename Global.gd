@@ -25,18 +25,18 @@ func _init_faces():
 	# Tier 1 ~ 5 stats
 	Faces["Strike"] = Face.new("Strike", attack, "Attack for 5 damage", [[Action.ATTACK, 5]])
 	Faces["Defend"] = Face.new("Defend", defend, "Block 5 damage", [[Action.DEFEND, 5]])
-	# Tier 2 ~ 7-12 stats
+	# Tier 2 ~ 6-10 stats
 	Faces["Shields Up!"] = Face.new("Shields Up!", defend, "Block 2. Adjacent Faces Block 2.",
 		[[Action.DEFEND, 2], [Action.MODIFY_ADJACENT, [Action.DEFEND, 2]]])
-	Faces["Double Edged Sword"] = Face.new("Double Edged Sword", attack, "Attack 10. Opposite Face: Take 2 damage.",
-		[[Action.ATTACK, 10], [Action.MODIFY_OPPOSITE, [Action.DAMAGE, 2]]])
+	Faces["Double Edged Sword"] = Face.new("Double Edged Sword", attack, "Attack 12. Opposite Face: Take 2 damage.",
+		[[Action.ATTACK, 12], [Action.MODIFY_OPPOSITE, [Action.DAMAGE, 2]]])
 	Faces["Medicate"] = Face.new("Medicate (with beer)", placeholder, "Heal 10. Adjacent: Take 1 damage.",
 		[[Action.HEAL, 10], [Action.MODIFY_ADJACENT, [Action.DAMAGE, 1]]])
 	Faces["Tantrum"] = Face.new("Tantrum", placeholder, "Attack 1 on all faces of this die.",
 		[[Action.ATTACK, 1], [Action.MODIFY_ADJACENT, [Action.ATTACK, 1]], [Action.MODIFY_OPPOSITE, [Action.ATTACK, 1]]])
 	Faces["Brothers in Arms"] = Face.new("Brothers in Arms", placeholder, "Attack 2. Strengthen attacks on adjacent faces by 1.",
 		[[Action.ATTACK, 2], [Action.MODIFY_ADJACENT, [Action.STRENGTH, 1]]])
-	# Tier 3 ~ 15+
+	# Tier 3 ~ 11+
 	Faces["Blood Sacrifice"] = Face.new("Blood Sacrifice", placeholder, 
 		"Take 5 damage. Opposite: Take 5 damage. Adjacent: Deal 6 damage.",
 		[[Action.DAMAGE, 5], [Action.MODIFY_OPPOSITE, [Action.DAMAGE, 5]], [Action.MODIFY_ADJACENT, [Action.ATTACK, 6]]])

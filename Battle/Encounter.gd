@@ -92,11 +92,12 @@ func enemy_actions(actions):
 	action_processing(actions, $enemy, $player)
 
 func action_processing(actions, source, target):
+	var mods = action_preprocessing(actions)
 	for action in actions:
 		var n = action[1]
 		match action[0]:
 			Global.Action.ATTACK:
-				target.take_damage(n)
+				target.take_damage(n + mods[Global.Action.STRENGTH])
 			Global.Action.DEFEND:
 				source.gain_defense(n)
 			Global.Action.DAMAGE:
@@ -104,7 +105,17 @@ func action_processing(actions, source, target):
 			Global.Action.HEAL:
 				source.heal(n)
 	
-
+func action_preprocessing(actions):
+	var mods = {
+		Global.Action.STRENGTH: 0
+	}
+	for action in actions:
+		var power = action[1]
+		match action[0]:
+			Global.Action.STRENGTH:
+				mods[Global.Action.STRENGTH] += power
+	return mods
+	
 func enemy_turn():
 	enemy_actions($enemy.take_turn())
 	
