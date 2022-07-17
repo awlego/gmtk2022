@@ -8,6 +8,8 @@ var next_dice_slot = 0
 const MAX_HEALTH = 10000
 var selected_die
 
+export var level_selector: PackedScene = preload("res://LevelSelector.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print(get_parent().get_children())
@@ -135,11 +137,13 @@ func _on_ReturnHomeButton_pressed():
 
 func _on_ReturnLevelSelectButton_pressed():
 	# signal that we've cleared the level
+	add_child(level_selector.instance())
 	
-#	var level_selector = get_tree().get_root().find_node("LevelSelector")
-	print(get_parent().get_children())
-	print(get_parent().get_node("LevelSelector"))
-#	level_selector.mark_level_cleared(Global.get_current_level())
+	
+	
+	print(get_children())
+
+	$LevelSelector.mark_level_cleared(Global.get_current_level())
 	assert(get_tree().change_scene("res://LevelSelector.tscn") == OK)
 
 func _on_PlayerDiceCollection_die_selected(selected_die):
