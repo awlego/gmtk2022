@@ -10,16 +10,18 @@ signal die_selected
 # eventually this needs to take die objects to pass them in -- not creating them
 # from scratch
 func _ready():
-	$DieSlot6.hide()
-	$DieSlot7.hide()
-	$DieSlot8.hide()
-	$DieSlot9.hide()
-	$DieSlot10.hide()
+	var dc = Global.Player.dice_collection
+#	$DieSlot6.hide()
+#	$DieSlot7.hide()
+#	$DieSlot8.hide()
+#	$DieSlot9.hide()
+#	$DieSlot10.hide()
 	
-	for i in range(5):
+	for i in range(len(dc)):
 		var GrabbedInstance = die_scene.instance()
-		GrabbedInstance.position.x = i * 64 + 30
-		GrabbedInstance.position.y = 30
+		GrabbedInstance.init_faces(dc[i])
+		GrabbedInstance.position.x = (i%5) * 64 + 30
+		GrabbedInstance.position.y = 30 + 64 * (i / 5)
 #		GrabbedInstance.scale.x = 1.5
 #		GrabbedInstance.scale.y = 1.5
 		GrabbedInstance.home_slot = i
