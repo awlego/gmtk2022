@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Dice/SimpleDie.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UpgradeShop/ShopInventory.gd" type="Script" id=2]
+
+[node name="ShopInventory" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color( 0.113725, 0.0117647, 0.0117647, 1 )
+polygon = PoolVector2Array( 5, 0, 0, 5, 0, 95, 5, 100, 265, 100, 270, 95, 270, 5, 265, 0 )
+
+[node name="f1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 50, 50 )
+scale = Vector2( 1.569, 1.538 )
+
+[node name="f2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 135, 50 )
+scale = Vector2( 1.569, 1.538 )
+
+[node name="f3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 220, 50 )
+scale = Vector2( 1.569, 1.538 )

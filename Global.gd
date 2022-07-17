@@ -41,6 +41,20 @@ func _init_faces():
 		"Take 5 damage. Opposite: Take 5 damage. Adjacent: Deal 6 damage.",
 		[[Action.DAMAGE, 5], [Action.MODIFY_OPPOSITE, [Action.DAMAGE, 5]], [Action.MODIFY_ADJACENT, [Action.ATTACK, 6]]])
 
+var face_tiers = []
+func init_face_tiers():
+	face_tiers.append(["Miss!"])
+	face_tiers.append(["Strike", "Defend"])
+	face_tiers.append(["Shields Up!", "Double Edged Sword", "Medicate", "Tantrum", "Brothers in Arms"])
+	face_tiers.append(["Blood Sacrifice"])
+
+func random_face(t2=0.9, t3=0.1):
+	var r = randi() % 100 / 100.0
+	r += t2
+	if r > 1.0:
+		return Faces[face_tiers[2][randi() % face_tiers[2].size()]]
+	return Faces[face_tiers[3][randi() % face_tiers[3].size()]]
+
 var dice_size = 90.0
 # Declare member variables here. Examples:
 # var a = 2
@@ -65,6 +79,7 @@ func get_current_level():
 func _init():
 	._init()
 	_init_faces()
+	init_face_tiers()
 	#var startdice = load("res://StarterDice.gd")
 #	Player.dice_collection = load("res://StarterDice.gd").new().get_starting_dice()
 #	print(Player.dice_collection)

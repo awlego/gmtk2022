@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://UpgradeShop/UpgradeShop.gd" type="Script" id=1]
 [ext_resource path="res://art/game_art/DALL·E 2022-07-16 11.05.18 - cartoon dwarf shopkeeper wearing armor rolling dice.png" type="Texture" id=2]
@@ -6,8 +6,10 @@
 [ext_resource path="res://UpgradeShop/Speech.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fonts/pixel-craft-font/PixelCraft-2Odxo.otf" type="DynamicFontData" id=5]
 [ext_resource path="res://Dice/PlayerDiceCollection.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Dice/DieSlot.tscn" type="PackedScene" id=8]
+[ext_resource path="res://FaceTooltip.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Dice/UnfoldInterface.tscn" type="PackedScene" id=8]
 [ext_resource path="res://art/game_art/Weapon.png" type="Texture" id=9]
+[ext_resource path="res://UpgradeShop/ShopInventory.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 28
@@ -89,18 +91,26 @@ visible = false
 position = Vector2( 298, 421 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 514.0
-margin_top = 916.0
-margin_right = 884.0
-margin_bottom = 969.0
+margin_left = 317.0
+margin_top = 720.0
+margin_right = 442.0
+margin_bottom = 773.0
 custom_fonts/font = SubResource( 1 )
-text = "SELECT A DIE TO UPGRADE"
+text = "Old face"
+
+[node name="Label7" type="Label" parent="."]
+margin_left = 305.0
+margin_top = 465.0
+margin_right = 447.0
+margin_bottom = 518.0
+custom_fonts/font = SubResource( 1 )
+text = "New face"
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 97.0
-margin_top = 68.0
-margin_right = 427.0
-margin_bottom = 121.0
+margin_left = 16.0
+margin_top = 518.0
+margin_right = 346.0
+margin_bottom = 571.0
 custom_fonts/font = SubResource( 1 )
 text = "UPGRADES REMAINING: 1"
 
@@ -114,103 +124,75 @@ text = "unrolled die showing
  proposed upgrades"
 
 [node name="Label6" type="Label" parent="."]
-margin_left = 517.0
-margin_top = 130.0
-margin_right = 865.0
-margin_bottom = 239.0
+margin_left = 781.0
+margin_top = 325.0
+margin_right = 1129.0
+margin_bottom = 434.0
 custom_fonts/font = SubResource( 1 )
 text = "select face
 to upgrade"
 
 [node name="asdf" type="Label" parent="."]
-margin_left = 883.0
-margin_top = 246.0
-margin_right = 2153.0
-margin_bottom = 366.0
+margin_left = 886.0
+margin_top = 164.0
+margin_right = 2156.0
+margin_bottom = 284.0
 custom_fonts/font = SubResource( 1 )
 text = "rotate? 
 i.e after selecting a new face, should it transform to be in the center of the cross?"
 
-[node name="Label5" type="Label" parent="."]
-margin_left = 241.0
-margin_top = 406.0
-margin_right = 616.0
-margin_bottom = 515.0
-custom_fonts/font = SubResource( 1 )
-text = "drag die here 
-to upgrade"
-
 [node name="Label3" type="Label" parent="."]
-margin_left = 100.0
-margin_top = 250.0
-margin_right = 422.0
-margin_bottom = 303.0
+margin_left = 441.0
+margin_top = 284.0
+margin_right = 763.0
+margin_bottom = 337.0
 custom_fonts/font = SubResource( 1 )
 text = "UPGRADES AVAILABLE"
 
-[node name="PlayerDiceCollection" parent="." instance=ExtResource( 6 )]
-position = Vector2( 454, 720 )
-scale = Vector2( 1.5, 1.5 )
-
-[node name="RollSlots" type="Node2D" parent="."]
-position = Vector2( 600, 246 )
-scale = Vector2( 1.5, 1.5 )
-
-[node name="DieSlot4" parent="RollSlots" instance=ExtResource( 8 )]
-position = Vector2( -95.3333, 111.333 )
-scale = Vector2( 1, 1 )
-
-[node name="DieSlot2" parent="RollSlots" instance=ExtResource( 8 )]
-position = Vector2( 62.6667, 52 )
-scale = Vector2( 1, 1 )
-
-[node name="DieSlot3" parent="RollSlots" instance=ExtResource( 8 )]
-position = Vector2( 63.3333, 111.333 )
-scale = Vector2( 1, 1 )
-
-[node name="RollSlots2" type="Node2D" parent="."]
-position = Vector2( 600, 246 )
-scale = Vector2( 1.5, 1.5 )
-
-[node name="DieSlot" parent="RollSlots2" instance=ExtResource( 8 )]
-position = Vector2( 8.66669, -7.33333 )
-scale = Vector2( 1, 1 )
-
-[node name="RollSlots3" type="Node2D" parent="."]
-position = Vector2( 600, 246 )
-scale = Vector2( 1.5, 1.5 )
-
-[node name="DieSlot" parent="RollSlots3" instance=ExtResource( 8 )]
-position = Vector2( 123.333, -6.66666 )
-scale = Vector2( 1, 1 )
-
-[node name="RollSlots4" type="Node2D" parent="."]
-position = Vector2( 600, 246 )
-scale = Vector2( 1.5, 1.5 )
-
-[node name="DieSlot" parent="RollSlots4" instance=ExtResource( 8 )]
-position = Vector2( 63.3333, -64 )
-scale = Vector2( 1, 1 )
-
-[node name="RollSlots5" type="Node2D" parent="."]
-position = Vector2( 600, 246 )
-scale = Vector2( 1.5, 1.5 )
-
-[node name="DieSlot" parent="RollSlots5" instance=ExtResource( 8 )]
-position = Vector2( 64.6667, -6.66666 )
-scale = Vector2( 1, 1 )
-
-[node name="Button" type="Button" parent="."]
-margin_left = 798.0
-margin_top = 425.0
-margin_right = 993.0
-margin_bottom = 507.0
+[node name="UpgradeButton" type="Button" parent="."]
+margin_left = 310.0
+margin_top = 584.0
+margin_right = 505.0
+margin_bottom = 666.0
 custom_fonts/font = SubResource( 2 )
 text = "Upgrade!"
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 788.0
-margin_top = 239.0
-margin_right = 872.0
-margin_bottom = 324.0
+margin_left = 525.0
+margin_top = 32.0
+margin_right = 609.0
+margin_bottom = 117.0
 color = Color( 1, 0.960784, 0, 1 )
+
+[node name="UnfoldInterface" parent="." instance=ExtResource( 8 )]
+position = Vector2( 734, 443 )
+
+[node name="FaceTooltip" parent="." instance=ExtResource( 7 )]
+margin_left = 459.0
+margin_top = 696.0
+margin_right = 459.0
+margin_bottom = 696.0
+
+[node name="NewFaceTooltip" parent="." instance=ExtResource( 7 )]
+margin_left = 459.0
+margin_top = 442.0
+margin_right = 459.0
+margin_bottom = 442.0
+
+[node name="PlayerDiceCollection" parent="." instance=ExtResource( 6 )]
+position = Vector2( 466, 804 )
+scale = Vector2( 1.5, 1.5 )
+
+[node name="ShopInventory" parent="." instance=ExtResource( 10 )]
+position = Vector2( 459, 336 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2( 621, 655 )
+rotation = 3.14159
+color = Color( 0.678431, 0.682353, 0.0392157, 1 )
+polygon = PoolVector2Array( 0, 0, 50, 0, 50, 50, 75, 50, 25, 75, -25, 50, 0, 50 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[connection signal="button_down" from="UpgradeButton" to="." method="on_upgrade_button"]

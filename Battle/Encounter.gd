@@ -31,6 +31,7 @@ func _ready():
 	$player.enter_battle(self)
 	
 	$UnfoldInterface.connect("update_selection", self, "on_face_update")
+	$UnfoldInterface.display_die(null)
 	
 	pass # Replace with function body.
 
@@ -143,7 +144,6 @@ func _on_ReturnLevelSelectButton_pressed():
 	assert(get_tree().change_scene("res://LevelSelector.tscn") == OK)
 
 func _on_PlayerDiceCollection_die_selected(selected_die):
-	print(selected_die)
 	$UnfoldInterface.display_die(selected_die)
 	
 func on_face_update(new_face):
