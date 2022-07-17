@@ -15,11 +15,6 @@ _global_script_classes=[ {
 "path": "res://Battle/Enemies/Enemy.gd"
 }, {
 "base": "Reference",
-"class": "Face",
-"language": "GDScript",
-"path": "res://Dice/Face.gd"
-}, {
-"base": "Reference",
 "class": "PlayerState",
 "language": "GDScript",
 "path": "res://Game/PlayerState.gd"
@@ -36,7 +31,6 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Enemy": "",
-"Face": "",
 "PlayerState": "",
 "Tooltip": "",
 "Unit": ""

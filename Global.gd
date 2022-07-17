@@ -61,6 +61,9 @@ var dice_size = 90.0
 # var b = "text"
 
 var current_level : int = 0
+var beaten_levels = []
+var unlocked_levels = []
+
 var slots = []
 
 # Called when the node enters the scene tree for the first time.
