@@ -14,8 +14,9 @@ func _ready():
 func _process(delta):
 	global_rotation = 0
 
-
-func update_healthbar(value):
+func update_healthbar(value_percentage):
+	var value = 100 * value_percentage
+	
 	healthbar.texture_progress = bar_green
 	if value < healthbar.max_value * 0.7:
 		healthbar.texture_progress = bar_yellow

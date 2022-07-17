@@ -53,9 +53,10 @@ func _ready():
 
 
 func update_hpbar():
-	var hpbar = get_node("HealthBar")
+	var hpbar = get_node("HealthDisplay")
 	if hpbar:
-		hpbar.update()
+		var p = 1.0 * health / max_health
+		hpbar.update_healthbar(p)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
