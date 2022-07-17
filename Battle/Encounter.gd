@@ -50,27 +50,26 @@ func start_player_turn():
 	$player.upkeep()
 
 func roll_dice():
-	var actions = $player.roll($Die)
-	$UnfoldInterface.display_die($Die)
+	if $PlayerDiceCollection.selected_slot == null:
+		return
+		
+	# ideally this is a cost of the dice and is handled in 
+	# the actions, but for now all actions cost 1 energy
+	$player.energy -= 1
+	$PlayerEnergy.text = str($player.energy)
+	print($PlayerDiceCollection.selected_slot)
+	
+	$PlayerDiceCollection 
+	var selected_dice = null
+	for child in get_tree().get_nodes_in_group("PlayerDice"):
+		if child.slot_index == $PlayerDiceCollection.selected_slot:
+			selected_dice = child
+			
+	var actions = selected_dice.roll()
+#	$UnfoldInterface.display_die(selected_dice)
 	print(actions)
 	player_actions(actions)
-#	$Die.roll()
-#	# decrement energy
-#	$Player.energy -= 1
-#	$PlayerEnergy.text = str($Player.energy)
-#
-#	# roll selected die
-#	var dice_roll = randi() % 6
-#	var dice_slots = get_tree().get_nodes_in_group("DiceSlots")
-#	var dice_to_roll = dice_slots[next_dice_slot]
-#	dice_to_roll.frame = dice_roll
-#	var dmg = clamp((dice_roll + 1) - $Enemy.defense, 0, MAX_HEALTH)
-#	$Enemy.health -= dmg
-#	$Enemy.health = clamp($Enemy.health, 0, MAX_HEALTH)
-#	$EnemyHealth.text = str($Enemy.health)
-#	next_dice_slot += 1
-#
-	# do effect of rolled die
+#	
 	# check for victory (where exactly should this live?)
 	if $enemy.health == 0:
 		round_cleared()
@@ -101,8 +100,7 @@ func action_processing(actions, source, target):
 
 func enemy_turn():
 	enemy_actions($enemy.take_turn())
-
-
+	
 	if $player.health == 0:
 		game_over()
 
