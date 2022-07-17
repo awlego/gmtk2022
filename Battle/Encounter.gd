@@ -99,6 +99,7 @@ func action_processing(actions, source, target):
 		var n = action[1]
 		match action[0]:
 			Global.Action.ATTACK:
+				$AttackSound.play()
 				target.take_damage(n + mods[Global.Action.STRENGTH])
 			Global.Action.DEFEND:
 				source.gain_defense(n)
