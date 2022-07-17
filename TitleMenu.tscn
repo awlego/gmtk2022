@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://TitleMenu.gd" type="Script" id=1]
 [ext_resource path="res://art/game_art/DALL·E 2022-07-17 00.55.11 - dwarven fortress interior, digital art.png" type="Texture" id=2]
@@ -13,12 +13,24 @@ size = 100
 outline_size = 4
 font_data = ExtResource( 3 )
 
+[sub_resource type="DynamicFont" id=3]
+size = 30
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
 [node name="TitleMenu" type="Node"]
 script = ExtResource( 1 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 1024.0
+margin_bottom = 1024.0
+rect_pivot_offset = Vector2( 336, 872 )
 mouse_filter = 2
 texture = ExtResource( 2 )
 
@@ -39,5 +51,21 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Dwarven Dungeon"
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 40.0
+margin_top = 264.0
+margin_right = 794.0
+margin_bottom = 322.0
+custom_fonts/font = SubResource( 3 )
+text = "A Game Jam Game by Alex Wilson and Tim Meyer"
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 616.0
+margin_top = 1000.0
+margin_right = 1370.0
+margin_bottom = 1058.0
+custom_fonts/font = SubResource( 4 )
+text = "Art created with the help of DALL-E 2"
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
